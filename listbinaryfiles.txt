@@ -1,0 +1,13 @@
+aclib/doc/manual.ind
+aclib/doc/manual.pdf
+aclib/doc/manual.log
+aclib/doc/manual.ilg
+aclib/doc/manual.toc
+aclib/doc/manual.bbl
+aclib/doc/make_doc
+aclib/doc/manual.dvi
+aclib/doc/manual.blg
+aclib/doc/manual.mst
+aclib/doc/manual.aux
+aclib/doc/manual.lab
+aclib/doc/manual.idx
