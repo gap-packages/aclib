@@ -50,7 +50,7 @@ end;
 ##
 #F BettiNumber( G, m )
 ##
-InstallGlobalFunction( BettiNumber, function( G, m )
+BettiNumberPcpGroup := function(G,m)
     local n, pcp, mats, CR, one, two;
 
     if not IsTorsionFree( G ) then
@@ -111,7 +111,15 @@ InstallGlobalFunction( BettiNumber, function( G, m )
 
     Print("Betti-number is out of range for our methods \n");
     return fail;
-end );
+end;
+
+InstallMethod( BettiNumber, "for torsion-free pcp groups", true,
+   [IsPcpGroup, IsInt], 0,
+function(G, m)
+    if not IsTorsionFree(G) then TryNextMethod(); fi;
+    if m in [3..HirschLength(G)-3] then TryNextMethod(); fi;
+    return BettiNumberPcpGroup(G,m);
+end); 
     
 #############################################################################
 ##

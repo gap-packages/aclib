@@ -191,4 +191,29 @@ function( G )
     return Image( NaturalHomomorphismOnHolonomyGroup(G) );
 end );
 
+#############################################################################
+##
+#F IsomorphismPcpGroup( <G> )
+##
+InstallMethod( IsomorphismPcpGroup, "for ac groups", true,
+    [IsMatrixGroup and HasAlmostCrystallographicInfo], 0,
+function( G )
+    local info, H, gensH, gensG, l, d, newsG, hom;
+
+    # get the corresponding pcp group
+    info := AlmostCrystallographicInfo( G );
+    H := AlmostCrystallographicPcpGroup( info.dim, info.type, info.param );
+    gensH := GeneratorsOfGroup(H);
+    gensG := GeneratorsOfGroup(G);
+
+    # sort the generators of G according to the generators of H
+    l := Length( gensG );
+    d := info.dim;
+    newsG := Concatenation( Reversed( gensG{[d+1..l]} ), gensG{[1..d]} );
+    hom := GroupHomomorphismByImagesNC( G, H, newsG, gensH );
+    SetIsInjective( hom, true );
+    SetIsSurjective( hom, true );
+    return hom;
+end );
+
 

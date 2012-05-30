@@ -7,6 +7,6 @@ tex manual
 tex manual
 pdftex manual; pdftex manual
 
-#rm -rf ../htm
-#mkdir ../htm
-#../../../etc/convert.pl -c -i -n aclib . ../htm
+rm -rf ../htm
+mkdir ../htm
+../../../etc/convert.pl -c -i -n aclib . ../htm
