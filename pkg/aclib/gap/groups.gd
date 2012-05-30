@@ -19,8 +19,8 @@ DeclareGlobalFunction( "AlmostCrystallographicPcpDim4" );
 DeclareGlobalFunction( "AlmostCrystallographicPcpGroup" );
 
 DeclareGlobalFunction( "IsolatorSubgroup" );
-DeclareGlobalFunction( "BettiNumber" );
 DeclareAttribute( "OrientationModule", IsGroup );
+DeclareOperation( "BettiNumber", [IsGroup, IsInt] );
 DeclareAttribute( "BettiNumbers", IsGroup );
 
 DeclareGlobalFunction( "HasExtensionOfType" );

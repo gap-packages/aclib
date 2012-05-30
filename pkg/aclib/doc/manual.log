@@ -1,8 +1,10 @@
-This is pdfTeX, Version 3.14159-1.10a (Web2C 7.4.5) (format=pdftex 2003.5.8)  14 OCT 2003 16:52
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdftex 2010.7.5)  29 MAY 2012 15:07
+entering extended mode
+ %&-line parsing enabled.
 **manual
-(./manual.tex{/var/lib/texmf/pdftex/config/pdftex.cfg}
-(../../../doc/gapmacro.tex (/usr/share/texmf/tex/plain/amsfonts/amssym.tex
-(/usr/share/texmf/tex/plain/amsfonts/amssym.def
+(./manual.tex (../../../doc/gapmacro.tex
+(/usr/share/texmf-texlive/tex/plain/amsfonts/amssym.tex
+(/usr/share/texmf-texlive/tex/plain/amsfonts/amssym.def
 \msafam=\fam8
 \msbfam=\fam9
 \eufmfam=\fam10
@@ -15,13 +17,19 @@ Running PDFTeX
 \origvsize=\dimen19
 \manindent=\dimen20
 \smallmanindent=\dimen21
-\msbfam=\fam11
+\itfam=\fam11
+\slfam=\fam12
+\bffam=\fam13
+\ttfam=\fam14
+\msbfam=\fam15
+\ttindent=\dimen22
 \labelout=\write0
 \indexout=\write1
 \secindout=\write2
 \tocout=\write3
 \citeout=\write4
 \ans=\write5
+\exampleout=\write6
 \labelin=\read0
 \indexin=\read1
 \tocin=\read2
@@ -32,8 +40,11 @@ Running PDFTeX
 \indentno=\count29
 \chapnum=\count30
 \ortoks=\toks12
-) (../../../doc/ext/manual.lab) (../../../doc/ref/manual.lab) [1{/var/lib/texmf
-/dvips/config/pdftex.map}]
+\bibindent=\dimen23
+)
+No file ../../../doc/ext/manual.lab.
+No file ../../../doc/ref/manual.lab.
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 \makelabel{aclib:Contents}{{\setbox 0=\hbox {1}\vrule width 0pt height\ht 0}}
 Chapter `Contents' .
 (./manual.toc) [2.1
@@ -55,8 +66,12 @@ Chapter `The Almost Crystallographic Groups Package' .
 Chapter `Algorithms for almost crystallographic groups' .
 [5.2]) (./aclib.tex [6.2]
 Chapter `The catalog of almost crystallographic groups' .
+\openout6 = `manual.example-3.tst'.
+
 [7.3] [8.3] [9.3] [10.3]) (./examp.tex [11.3]
 Chapter `Example computations with almost crystallographic groups' .
+\openout6 = `manual.example-4.tst'.
+
 [12.4] [13.4] [14.4]) [15.4]
 Chapter `Bibliography' .
 (./manual.bbl) [16.5]
@@ -68,22 +83,24 @@ Chapter `Index' .
 ## Section index entries written on manual.six.
 ## Label definitions written on manual.lab.
 ## Table of contents written on manual.toc.
+## Examples written to manual.example-XX.tst.
 ##
- ){/usr/share/texmf/dvips/tetex/bbad153f.enc}</usr/share/texmf/fonts/type1/blue
-sky/cm/cmsy5.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmex10.pfb>{/usr/shar
-e/texmf/dvips/tetex/0ef0afca.enc}</usr/share/texmf/fonts/type1/bluesky/cm/cmr5.
-pfb></usr/share/texmf/fonts/type1/bluesky/symbols/msam7.pfb>{/usr/share/texmf/d
-vips/tetex/f7b6d320.enc}</usr/share/texmf/fonts/type1/bluesky/cm/cmr8.pfb></usr
-/share/texmf/fonts/type1/bluesky/cm/cmsl10.pfb>{/usr/share/texmf/dvips/tetex/aa
-e443f0.enc}</usr/share/texmf/fonts/type1/bluesky/cm/cmmi7.pfb></usr/share/texmf
-/fonts/type1/bluesky/cm/cmsy7.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi
-10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy10.pfb>{/usr/share/texmf/dv
-ips/tetex/09fbbfac.enc}</usr/share/texmf/fonts/type1/bluesky/cm/cmtt10.pfb></us
-r/share/texmf/fonts/type1/bluesky/cm/cmss10.pfb></usr/share/texmf/fonts/type1/b
-luesky/cm/cmr7.pfb></usr/share/texmf/fonts/type1/bluesky/symbols/msbm10.pfb>{/u
-sr/share/texmf/dvips/tetex/74afc74c.enc}</usr/share/texmf/fonts/type1/bluesky/c
-m/cmti10.pfb>{/usr/share/texmf/dvips/tetex/1b6d048e.enc}</usr/share/texmf/fonts
-/type1/bluesky/cm/cminch.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmbx10.pf
-b></usr/share/texmf/fonts/type1/bluesky/cm/cmr10.pfb></usr/share/texmf/fonts/ty
-pe1/bluesky/cm/cmssdc10.pfb>
-Output written on manual.pdf (17 pages, 175988 bytes).
+ ){/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texli
+ve/fonts/type1/bluesky/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/type1/blue
+sky/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/bluesky/cm/cmr10.pfb></
+usr/share/texmf-texlive/fonts/type1/bluesky/cm/cmsy10.pfb></usr/share/texmf-tex
+live/fonts/type1/bluesky/cm/cmtt10.pfb></usr/share/texmf-texlive/fonts/type1/bl
+uesky/ams/msam7.pfb></usr/share/texmf-texlive/fonts/type1/bluesky/ams/msbm10.pf
+b></usr/share/texmf-texlive/fonts/type1/hoekwater/rsfs/rsfs10.pfb></usr/share/t
+exmf-texlive/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texmf-texlive/font
+s/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/symbo
+l/usyr.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/sha
+re/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-texlive/fon
+ts/type1/urw/times/utmr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/u
+tmri8a.pfb>
+Output written on manual.pdf (17 pages, 186518 bytes).
+PDF statistics:
+ 331 PDF objects out of 1000 (max. 8388607)
+ 53 named destinations out of 1000 (max. 131072)
+ 241 words of extra memory for PDF output out of 10000 (max. 10000000)
+
