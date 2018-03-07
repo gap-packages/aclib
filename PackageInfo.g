@@ -79,7 +79,9 @@ Dependencies := rec(
   ExternalConditions := [] ),
 
 AvailabilityTest := ReturnTrue,
-Autoload := true,
+
+TestFile := "tst/testall.g",
+
 Keywords := ["almost crystallographic groups", "almost Bieberbach group",
              "virtually nilpotent group", "nilpotent-by-finite group", 
              "datalibrary of almost Bieberbach groups"]
