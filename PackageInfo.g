@@ -16,14 +16,15 @@ Persons := [
       FirstNames    := "Karel",
       IsAuthor      := true,
       IsMaintainer  := false,
-      Email         := "dekimpe@kulak.ac.be",
-      WWWHome       := "http://www.kulak.ac.be/~dekimpe",
+      Email         := "Karel.Dekimpe@kuleuven.be",
+      WWWHome       := "https://www.kuleuven-kulak.be/~dekimpe/",
       PostalAddress := Concatenation( [
                        "Katholieke Universiteit Leuven\n",
                        "Campus Kortrijk, Universitaire Campus\n",
-                       "Kortrijk, B 8500\n Belgium"]),
+                       "Kortrijk, B 8500\n",
+                       "Belgium"]),
       Place         := "Kortrijk",
-      Institution   := "University of Kortrijk"),
+      Institution   := "KU Leuven Kulak"),
 
   rec( 
       LastName      := "Eick",
