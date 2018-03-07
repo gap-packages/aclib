@@ -73,9 +73,9 @@ PackageDoc := rec(
   Autoload  := true),
 
 Dependencies := rec(
-  GAP := ">=4.4",
-  NeededOtherPackages := [],
-  SuggestedOtherPackages := [["polycyclic",">=1.0"], ["crystcat",">=1.1"]],
+  GAP := ">=4.7",
+  NeededOtherPackages := [["polycyclic",">=1.0"]],
+  SuggestedOtherPackages := [["crystcat",">=1.1"]],
   ExternalConditions := [] ),
 
 AvailabilityTest := ReturnTrue,
