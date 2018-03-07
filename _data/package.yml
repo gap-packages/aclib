@@ -1,48 +1,40 @@
-name: GitHubPagesForGAP
-version: 0.2
-date: 2017-02-04
+name: AClib
+version: 1.2
+date: 2012-05-29
 description: |
-    A GitHub Pages generator for GAP packages
+    Almost Crystallographic Groups - A Library and Algorithms
 
 authors:
-    - name: Max Horn
-      url: http://www.quendi.de/math
-    - name: A. U. Thor
+    - name: Karel Dekimpe
+      url: http://www.kulak.ac.be/~dekimpe
+    - name: Bettina Eick
+      url: http://www.icm.tu-bs.de/~beick
 
 maintainers:
-    - name: Max Horn
-      url: http://www.quendi.de/math
-    - name: Jan Itor
+    - name: Bettina Eick
+      url: http://www.icm.tu-bs.de/~beick
 
-GAP: ">=4.8.1"
-
-needed-pkgs:
-    - name: "GAPDoc"
-      version: ">= 1.2"
-      url: "http://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc"
-    - name: "IO"
-      version: ">= 4.1"
-      url: "https://gap-packages.github.io/io"
+GAP: ">=4.4"
 
 suggested-pkgs:
-    - name: "orb"
-      version: ">= 4.2"
-      url: "https://gap-packages.github.io/orb"
+    - name: "polycyclic"
+      version: ">=1.0"
+      url: "https://gap-packages.github.io/polycyclic/"
+    - name: "crystcat"
+      version: ">=1.1"
+      url: "https://www.math.uni-bielefeld.de/~gaehler/gap45/packages.php"
 
-www: https://gap-system.github.io/GitHubPagesForGAP/
-readme: README.md
-packageinfo: https://gap-system.github.io/GitHubPagesForGAP/PackageInfo.g
-github: https://github.com/gap-system/GitHubPagesForGAP
+www: http://www.icm.tu-bs.de/~beick/so.html
+readme: README
+packageinfo: http://www.icm.tu-bs.de/~beick/soft/aclib/PackageInfo.g
 
 downloads:
     - name: .tar.gz
-      url: https://github.com/gap-system/GitHubPagesForGAP/releases/download/v0.2/GitHubPagesForGAP-0.2.tar.gz
-    - name: .tar.bz2
-      url: https://github.com/gap-system/GitHubPagesForGAP/releases/download/v0.2/GitHubPagesForGAP-0.2.tar.bz2
+      url: http://www.icm.tu-bs.de/~beick/soft/aclib/aclib-1.2.tar.gz
 
 abstract: |
-    This is a pseudo package that contains no actual  <span class="pkgname">GAP</span> code. Instead, it is a template for other  GAP packages that allows to quickly setup GitHub Pages.
+    The <span class="pkgname">AClib</span> package contains a library of almost crystallographic groups and a some algorithms to compute with these groups. A group is called almost crystallographic if it is finitely generated nilpotent-by-finite and has no non-trivial finite normal subgroups. Further, an almost crystallographic group is called almost Bieberbach if it is torsion-free. The almost crystallographic groups of Hirsch length 3 and a part of the almost cyrstallographic groups of Hirsch length 4 have been classified by Dekimpe. This classification includes all almost Bieberbach groups of Hirsch lengths 3 or 4. The AClib package gives access to this classification; that is, the package contains this library of groups in a computationally useful form. The groups in this library are available in two different representations. First, each of the groups of Hirsch length 3 or 4 has a rational matrix representation of dimension 4 or 5, respectively, and such representations are available in this package. Secondly, all the groups in this libraray are (infinite) polycyclic groups and the package also incorporates polycyclic presentations for them. The polycyclic presentations can be used to compute with the given groups using the methods of the Polycyclic package.
 
-status: other
-doc-html: doc/chap0.html
+status: accepted
+doc-html: htm/chapters.htm
 doc-pdf: doc/manual.pdf
