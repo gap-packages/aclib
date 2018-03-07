@@ -46,15 +46,18 @@ Status := "accepted",
 CommunicatedBy := "Gerhard Hiss (Aachen)",
 AcceptDate := "02/2001",
 
-PackageWWWHome := "http://www.icm.tu-bs.de/~beick/so.html",
-
+PackageWWWHome  := "https://gap-packages.github.io/aclib/",
+README_URL      := Concatenation( ~.PackageWWWHome, "README" ),
+PackageInfoURL  := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
+SourceRepository := rec(
+    Type := "git",
+    URL := "https://github.com/gap-packages/aclib",
+),
+IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
+ArchiveURL      := Concatenation( ~.SourceRepository.URL,
+                                 "/releases/download/v", ~.Version,
+                                 "/aclib-", ~.Version ),
 ArchiveFormats := ".tar.gz",
-ArchiveURL := "http://www.icm.tu-bs.de/~beick/soft/aclib/aclib-1.2", 
-README_URL := "http://www.icm.tu-bs.de/~beick/soft/aclib/README",
-PackageInfoURL := "http://www.icm.tu-bs.de/~beick/soft/aclib/PackageInfo.g",
-# ArchiveURL     := Concatenation( ~.PackageWWWHome, "aclib-", ~.Version ),
-# README_URL     := Concatenation( ~.PackageWWWHome, "README" ),
-# PackageInfoURL := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
 
 AbstractHTML := 
 "The <span class=\"pkgname\">AClib</span> package contains a library of almost crystallographic groups and a some algorithms to compute with these groups. A group is called almost crystallographic if it is finitely generated nilpotent-by-finite and has no non-trivial finite normal subgroups. Further, an almost crystallographic group is called almost Bieberbach if it is torsion-free. The almost crystallographic groups of Hirsch length 3 and a part of the almost cyrstallographic groups of Hirsch length 4 have been classified by Dekimpe. This classification includes all almost Bieberbach groups of Hirsch lengths 3 or 4. The AClib package gives access to this classification; that is, the package contains this library of groups in a computationally useful form. The groups in this library are available in two different representations. First, each of the groups of Hirsch length 3 or 4 has a rational matrix representation of dimension 4 or 5, respectively, and such representations are available in this package. Secondly, all the groups in this libraray are (infinite) polycyclic groups and the package also incorporates polycyclic presentations for them. The polycyclic presentations can be used to compute with the given groups using the methods of the Polycyclic package.",
