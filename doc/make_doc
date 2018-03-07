@@ -1,12 +1,22 @@
 #!/bin/sh
-rm -f manual.aux manual.idx manual.ilg manual.ind manual.lab manual.log manual.six manual.toc
+set -e
+
+echo "TeXing documentation"
+# TeX the manual and build its bibliography
+tex manual; bibtex manual
+# TeX the manual again to incorporate the ToC ... and build the index
+tex manual; ../../../doc/manualindex manual
+# Finally TeX the manual again to get cross-references right
 tex manual
-../../../doc/manualindex manual
-bibtex manual
-tex manual
-tex manual
+# Create the .pdf version
 pdftex manual; pdftex manual
 
+# The HTML version of the manual
 rm -rf ../htm
 mkdir ../htm
-../../../etc/convert.pl -c -i -n aclib . ../htm
+echo "Creating HTML documentation"
+../../../etc/convert.pl -i -u -c -n aclib . ../htm
+
+#############################################################################
+##
+#E
