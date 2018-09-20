@@ -35,7 +35,7 @@ AllActionsHolonomy := function( G )
     U := FittingSubgroup(G);
 
     # determine all subgroups of index 2 in G/U
-    hom := NaturalHomomorphism( G, U );
+    hom := NaturalHomomorphismByNormalSubgroup( G, U );
     F   := Image( hom );
     low := LowIndexSubgroupClasses( F, 2 );
     low := List( low, Representative );
@@ -78,7 +78,7 @@ AllActionsForTorsionFreeExtension := function( G )
     if Index( G, U ) = 1 then return acts; fi;
 
     # determine all subgroups of index 2 in G/U
-    hom := NaturalHomomorphism( G, U );
+    hom := NaturalHomomorphismByNormalSubgroup( G, U );
     F   := Image( hom );
     low := LowIndexSubgroupClasses( F, 2 );
     low := List( low, Representative );

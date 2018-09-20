@@ -35,7 +35,7 @@ end );
 InstallGlobalFunction( IsolatorSubgroup, function( G, N )
     local nat, F, T;
     if not IsNormal( G, N ) then return fail; fi;
-    nat := NaturalHomomorphism( G, N );
+    nat := NaturalHomomorphismByNormalSubgroup( G, N );
     F := Image( nat );
     T := TorsionSubgroup( F );
     if IsBool( T ) then return fail; fi;
@@ -182,7 +182,7 @@ end );
 InstallMethod( NaturalHomomorphismOnHolonomyGroup, "for ac pcp groups", true,
     [IsPcpGroup and IsAlmostCrystallographic], 0, 
 function( G )
-    return NaturalHomomorphism(G,FittingSubgroup(G));
+    return NaturalHomomorphismByNormalSubgroup(G,FittingSubgroup(G));
 end );
 
 InstallMethod( HolonomyGroup, "for ac pcp groups", true,
