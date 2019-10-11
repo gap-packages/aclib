@@ -7,8 +7,8 @@ SetPackageInfo( rec(
 
 PackageName := "AClib",
 Subtitle := "Almost Crystallographic Groups - A Library and Algorithms",
-Version := "1.3.1",
-Date := "11/10/2018", # dd/mm/yyyy format
+Version := "1.3.2",
+Date := "11/10/2019", # dd/mm/yyyy format
 License := "Artistic-2.0",
 
 Persons := [
@@ -33,12 +33,11 @@ Persons := [
       IsAuthor      := true,
       IsMaintainer  := true,
       Email         := "beick@tu-bs.de",
-      WWWHome       := "http://www.icm.tu-bs.de/~beick",
+      WWWHome       := "http://www.iaa.tu-bs.de/beick",
       PostalAddress := Concatenation(
-               "AG Algebra und Diskrete Mathematik\n",
-               "Institut Computational Mathematics\n",
+               "Institut Analysis und Algebra\n",
                "TU Braunschweig\n",
-               "Pockelsstr. 14\n",
+               "Universitätsplatz 2\n",
                "D-38106 Braunschweig\n",
                "Germany" ),
       Place         := "Braunschweig",
