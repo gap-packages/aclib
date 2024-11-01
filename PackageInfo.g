@@ -70,7 +70,7 @@ PackageDoc := rec(
   PDFFile   := "doc/manual.pdf",
   SixFile   := "doc/manual.six",
   LongTitle := "Almost Crystallographic Groups - A Library and Algorithms",
-  Autoload  := true),
+),
 
 Dependencies := rec(
   GAP := ">=4.7",
