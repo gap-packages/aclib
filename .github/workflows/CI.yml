@@ -39,6 +39,7 @@ jobs:
           GAPBRANCH: ${{ matrix.gap-branch }}
       - uses: gap-actions/build-pkg@v1
       - uses: gap-actions/run-pkg-tests@v3
+      - uses: gap-actions/run-pkg-tests@v3
         with:
           only-needed: true
       - uses: gap-actions/process-coverage@v2
