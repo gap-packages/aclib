@@ -47,6 +47,7 @@ gap> U := Subgroup( H, [Pcp(H)[1]^2] );
 Pcp-group with orders [ 2 ]
 gap> PreImage( hom, U );
 Pcp-group with orders [ 2, 0, 0, 0, 0 ]
+gap> Reset(GlobalMersenneTwister,1);;
 gap> G := AlmostCrystallographicGroup( 4, 70, false );
 <matrix group of size infinity with 5 generators>
 gap> IsAlmostCrystallographic(G);
