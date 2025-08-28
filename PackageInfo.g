@@ -7,8 +7,8 @@ SetPackageInfo( rec(
 
 PackageName := "AClib",
 Subtitle := "Almost Crystallographic Groups - A Library and Algorithms",
-Version := "1.3.2",
-Date := "28/01/2020", # dd/mm/yyyy format
+Version := "1.3.3",
+Date := "28/08/2025", # dd/mm/yyyy format
 License := "Artistic-2.0",
 
 Persons := [
