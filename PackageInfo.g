@@ -1,102 +1,90 @@
 #############################################################################
 ##  
-##  Demo PackageInfo.g for the GitHubPagesForGAP
-##
+##  PackageInfo.g for the package `Aclib'                      Bettina Eick
+##  
 
 SetPackageInfo( rec(
 
-PackageName := "GitHubPagesForGAP",
-
-Subtitle := "A GitHub Pages generator for GAP packages",
-Version := "0.4",
-Date := "10/04/2025", # dd/mm/yyyy format
-License := "0BSD",
+PackageName := "AClib",
+Subtitle := "Almost Crystallographic Groups - A Library and Algorithms",
+Version := "1.3.3",
+Date := "28/08/2025", # dd/mm/yyyy format
+License := "Artistic-2.0",
 
 Persons := [
-  rec(
-    LastName      := "Horn",
-    FirstNames    := "Max",
-    IsAuthor      := true,
-    IsMaintainer  := true,
-    Email         := "mhorn@rptu.de",
-    WWWHome       := "https://www.quendi.de/math",
-    GitHubUsername:= "fingolfin",
-    PostalAddress := Concatenation(
-                       "Fachbereich Mathematik\n",
-                       "RPTU Kaiserslautern-Landau\n",
-                       "Gottlieb-Daimler-Straße 48\n",
-                       "67663 Kaiserslautern\n",
-                       "Germany" ),
-    Place         := "Kaiserslautern, Germany",
-    Institution   := "RPTU Kaiserslautern-Landau"
-  ),
+   rec(
+      LastName      := "Dekimpe",
+      FirstNames    := "Karel",
+      IsAuthor      := true,
+      IsMaintainer  := false,
+      Email         := "Karel.Dekimpe@kuleuven.be",
+      WWWHome       := "https://www.kuleuven-kulak.be/~dekimpe/",
+      PostalAddress := Concatenation( [
+                       "Katholieke Universiteit Leuven\n",
+                       "Campus Kortrijk, Universitaire Campus\n",
+                       "Kortrijk, B 8500\n",
+                       "Belgium"]),
+      Place         := "Kortrijk",
+      Institution   := "KU Leuven Kulak"),
 
-  rec(
-    LastName      := "Thor",
-    FirstNames    := "A. U.",
-    IsAuthor      := true,
-    IsMaintainer  := false,
-    #Email         := "author@example.com",
-  ),
+  rec( 
+      LastName      := "Eick",
+      FirstNames    := "Bettina",
+      IsAuthor      := true,
+      IsMaintainer  := true,
+      Email         := "beick@tu-bs.de",
+      WWWHome       := "http://www.iaa.tu-bs.de/beick",
+      PostalAddress := Concatenation(
+               "Institut Analysis und Algebra\n",
+               "TU Braunschweig\n",
+               "Universitätsplatz 2\n",
+               "D-38106 Braunschweig\n",
+               "Germany" ),
+      Place         := "Braunschweig",
+      Institution   := "TU Braunschweig") ],
 
-  rec(
-    LastName      := "Itor",
-    FirstNames    := "Jan",
-    IsAuthor      := false,
-    IsMaintainer  := true,
-    #Email         := "janitor@example.com",
-  ),
-],
+Status := "accepted",
+CommunicatedBy := "Gerhard Hiss (Aachen)",
+AcceptDate := "02/2001",
 
-Status := "other",
-
-# The following are not strictly necessary in your own PackageInfo.g
-# (in the sense that update.g only looks at the usual fields
-# like PackageWWWHome, ArchiveURL etc.). But they are convenient
-# if you use exactly the scheme for your package website that we propose.
-GithubUser := "gap-system",
-GithubRepository := ~.PackageName,
-GithubWWW := Concatenation("https://github.com/", ~.GithubUser, "/", ~.GithubRepository),
-
-PackageWWWHome := Concatenation("https://", ~.GithubUser, ".github.io/", ~.GithubRepository, "/"),
-README_URL     := Concatenation( ~.PackageWWWHome, "README.md" ),
-PackageInfoURL := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
-# The following assumes you are using the Github releases system. If not, adjust
-# it accordingly.
-ArchiveURL     := Concatenation(~.GithubWWW,
-                    "/releases/download/v", ~.Version, "/",
-                    ~.GithubRepository, "-", ~.Version),
-
-ArchiveFormats := ".tar.gz .tar.bz2",
+PackageWWWHome  := "https://gap-packages.github.io/aclib/",
+README_URL      := Concatenation( ~.PackageWWWHome, "README" ),
+PackageInfoURL  := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
+SourceRepository := rec(
+    Type := "git",
+    URL := "https://github.com/gap-packages/aclib",
+),
+IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
+ArchiveURL      := Concatenation( ~.SourceRepository.URL,
+                                 "/releases/download/v", ~.Version,
+                                 "/aclib-", ~.Version ),
+ArchiveFormats := ".tar.gz",
 
 AbstractHTML := 
-  "This is a pseudo package that contains no actual\
-  <span class=\"pkgname\">GAP</span> code. Instead, it is a template for other\
-  GAP packages that allows to quickly setup GitHub Pages.",
+"The <span class=\"pkgname\">AClib</span> package contains a library of almost crystallographic groups and a some algorithms to compute with these groups. A group is called almost crystallographic if it is finitely generated nilpotent-by-finite and has no non-trivial finite normal subgroups. Further, an almost crystallographic group is called almost Bieberbach if it is torsion-free. The almost crystallographic groups of Hirsch length 3 and a part of the almost cyrstallographic groups of Hirsch length 4 have been classified by Dekimpe. This classification includes all almost Bieberbach groups of Hirsch lengths 3 or 4. The AClib package gives access to this classification; that is, the package contains this library of groups in a computationally useful form. The groups in this library are available in two different representations. First, each of the groups of Hirsch length 3 or 4 has a rational matrix representation of dimension 4 or 5, respectively, and such representations are available in this package. Secondly, all the groups in this libraray are (infinite) polycyclic groups and the package also incorporates polycyclic presentations for them. The polycyclic presentations can be used to compute with the given groups using the methods of the Polycyclic package.",
 
 PackageDoc := rec(
-  BookName  := "GitHubPagesForGAP",
-  ArchiveURLSubset := ["doc"],
-  HTMLStart := "doc/chap0.html",
+  BookName  := "AClib",
+  ArchiveURLSubset := ["doc", "htm"],
+  HTMLStart := "htm/chapters.htm",
   PDFFile   := "doc/manual.pdf",
   SixFile   := "doc/manual.six",
-  LongTitle := "A GitHub Pages generator for GAP packages",
+  LongTitle := "Almost Crystallographic Groups - A Library and Algorithms",
 ),
 
-# The following dependencies are fake and for testing / demo purposes
 Dependencies := rec(
-  GAP := ">=4.8.1",
-  NeededOtherPackages := [
-    ["GAPDoc", ">= 1.2"],
-    ["IO", ">= 4.1"],
-  ],
-  SuggestedOtherPackages := [["orb", ">= 4.2"]],
-  ExternalConditions := []
-),
+  GAP := ">=4.7",
+  NeededOtherPackages := [["polycyclic",">=1.0"]],
+  SuggestedOtherPackages := [["crystcat",">=1.1"]],
+  ExternalConditions := [] ),
 
 AvailabilityTest := ReturnTrue,
 
-Keywords := ["GitHub Pages", "GAP"]
+TestFile := "tst/testall.g",
+
+Keywords := ["almost crystallographic groups", "almost Bieberbach group",
+             "virtually nilpotent group", "nilpotent-by-finite group", 
+             "datalibrary of almost Bieberbach groups"]
 
 ));
 
