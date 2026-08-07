@@ -65,8 +65,8 @@ AbstractHTML :=
 
 PackageDoc := rec(
   BookName  := "AClib",
-  ArchiveURLSubset := ["doc", "htm"],
-  HTMLStart := "htm/chapters.htm",
+  ArchiveURLSubset := ["doc"],
+  HTMLStart := "doc/chap0_mj.html",
   PDFFile   := "doc/manual.pdf",
   SixFile   := "doc/manual.six",
   LongTitle := "Almost Crystallographic Groups - A Library and Algorithms",
