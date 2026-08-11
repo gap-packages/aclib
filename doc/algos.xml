@@ -3,11 +3,12 @@
 This chapter presents a variety of algorithms for almost crystallographic
 groups. In most cases, they assume a polycyclically presented group as 
 input; in particular, the input groups must be polycyclic in this case.
-The methods described here supplement the methods of the  Polycyclic 
-package for polycyclically presented groups. Many of the functions in this 
-chapter are based on methods of the  Polycyclic package and thus this 
-package must be installed to use the functions introduced here. We refer to
-the  Polycyclic package for further information on polycyclic 
+The methods described here supplement the methods of the
+<Package>Polycyclic</Package> package for polycyclically presented groups.
+Many of the functions in this chapter are based on methods of the
+<Package>Polycyclic</Package> package and thus this package must be installed
+to use the functions introduced here. We refer to the
+<Package>Polycyclic</Package> package for further information on polycyclic
 presentations.
 <Section Label="Properties of almost crystallographic groups">
 <Heading>Properties of almost crystallographic groups</Heading>
@@ -31,8 +32,8 @@ free.
 <Section Label="Betti numbers">
 <Heading>Betti numbers</Heading>
 Let <M>G</M> be a polycyclically presented and torsion free group of Hirsch 
-length <M>n</M>. Then we can compute the Betti numbers <M>\beta_i(G)</M> for <M>i \in 
-{0, 1, 2, n-2, n-1, n}</M>. If <M>n \leq 6</M>, then we can compute all Betti
+length <M>n</M>. Then we can compute the Betti numbers <M>\beta_i(G)</M> for <M>i \in
+\{0, 1, 2, n-2, n-1, n\}</M>. If <M>n \leq 6</M>, then we can compute all Betti
 numbers <M>\beta_i(G)</M> for <M>0 \leq i \leq 6</M> of <M>G</M>. We introduce the following
 functions for this purpose and we refer to <Cite Key="BRO"/> for the details on 
 the orientation module and the Betti numbers.
@@ -41,7 +42,7 @@ the orientation module and the Betti numbers.
 <Description>
 This function determines the orientation module of the polycyclically
 presented group <A>G</A>; that is, it returns a list of matrices <M>m_1, \ldots,
-m_n \leq GL( 1, &ZZ; )</M> which are the images of the 'Igs(G)' in their action
+m_n \in GL( 1, &ZZ; )</M> which are the images of the <C>Igs(G)</C> in their action
 on the orientation module.
 </Description>
 </ManSection>
@@ -49,14 +50,14 @@ on the orientation module.
 <Oper Name="BettiNumber" Arg="G, m"/>
 <Description>
 This function returns the <A>m</A>th Betti number of the polycyclically presented
-torsion free group <A>G</A> if <M>m \in {0, 1, 2, n-2, n-1, n}</M>, where <M>n</M> is the 
+torsion free group <A>G</A> if <M>m \in \{0, 1, 2, n-2, n-1, n\}</M>, where <M>n</M> is the 
 Hirsch length of <A>G</A>.
 </Description>
 </ManSection>
 <ManSection>
 <Attr Name="BettiNumbers" Arg="G"/>
 <Description>
-This function returns the Betti number of the polycyclically presented
+This function returns the Betti numbers of the polycyclically presented
 torsion free group <A>G</A> if the Hirsch length of <A>G</A> is smaller than 7.
 </Description>
 </ManSection>
@@ -68,8 +69,8 @@ to check the existence of certain extensions of <M>G</M>.
 <P/>
 First, it is well-known that the equivalence classes of extensions of <M>G</M>
 correspond to the second cohomology group of <M>G</M>. This cohomology group can
-be computed using the methods of the  Polycyclic package for any 
-explicitly given module of <M>G</M>. Further, we can construct a polycyclic
+be computed using the methods of the <Package>Polycyclic</Package> package
+for any explicitly given module of <M>G</M>. Further, we can construct a polycyclic
 presentation for each cocycle of the second cohomology group. We give an 
 example for such a computation below.
 <P/>

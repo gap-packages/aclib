@@ -43,7 +43,7 @@ gap> C:=CRRecordByMats( Q, action);;
 gap> TwoCohomologyCR( C ).factor.rels;
 [ 2, 2, 4, 0 ]
 
-# doc/examp.xml:141-172
+# doc/examp.xml:142-173
 gap> G := AlmostCrystallographicPcpGroup(3, 17, [2,0,0,0] );
 Pcp-group with orders [ 2, 6, 0, 0, 0 ]
 gap> projection := NaturalHomomorphismOnHolonomyGroup( G );
@@ -75,7 +75,7 @@ g1^2 = id
 g2^2 = id 
 g3^2 = id 
 
-# doc/examp.xml:176-193
+# doc/examp.xml:177-194
 gap> G := AlmostCrystallographicPcpGroup(3, 17, [2,0,0,1]);;
 gap> projection := NaturalHomomorphismOnHolonomyGroup( G );;
 gap> F := HolonomyGroup( G );;

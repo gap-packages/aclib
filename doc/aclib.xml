@@ -1,7 +1,7 @@
 <Chapter Label="The catalog of almost crystallographic groups">
 <Heading>The catalog of almost crystallographic groups</Heading>
 This chapter introduces the access functions to the catalog of
-3- and 4-dimensional crystallographic groups. This catalog is an
+3- and 4-dimensional almost crystallographic groups. This catalog is an
 electronic version of the classification obtained in <Cite Key="KD"/>.
 <Section Label="Rational matrix groups">
 <Heading>Rational matrix groups</Heading>
@@ -16,11 +16,11 @@ of almost crystallographic groups as rational matrix groups.
 either 3 or 4. The inputs <A>type</A> and <A>parameters</A> are used to define
 the desired group as described in <Cite Key="KD"/>. We outline the possible
 choices for <A>type</A> and <A>parameters</A> here briefly. A more extended 
-description is given later in Section <Ref Sect="More about almost crystallographic groups"/> or can be obtained from <Cite Key="KD"/>.
+description is given later in Section <Ref Sect="More about the type and the defining parameters"/> or can be obtained from <Cite Key="KD"/>.
 <P/>
 <A>type</A> specifies the type of the required group. There are 17 types
 in dimension 3 and 95 types in dimension 4. The input <A>type</A> can either
-be an integer  defining the position of the desired type among all types;
+be an integer defining the position of the desired type among all types;
 that is, in this case <A>type</A> is a number in [1..17] in dimension 3 or a
 number in [1..95] in dimension 4. Alternatively, <A>type</A> can be a string
 defining the desired type. In dimension 3 the possible strings are 
@@ -32,7 +32,7 @@ the chosen group. The lists <C>ACDim3Param</C> and <C>ACDim4Param</C> contain
 at position <M>i</M> the length of the parameter list for the type number <M>i</M>.
 Every list of integers of this length is a valid <A>parameter</A> input.
 Alternatively, one can input <K>false</K> instead of a parameter list. Then 
-&GAP; will chose a random parameter list of suitable length.
+&GAP; will choose a random parameter list of suitable length.
 <Example><![CDATA[
 gap> G := AlmostCrystallographicGroup( 4, 50, [ 1, -4, 1, 2 ] );
 <matrix group of size infinity with 5 generators>
@@ -68,8 +68,8 @@ All the almost crystallographic groups considered in this package are
 polycyclic. Hence they have a polycyclic presentation and this can be
 used to facilitate efficient computations with the groups. To obtain the
 polycyclic presentation of an almost crystallographic group we supply the
-following functions. Note that the share package  Polycyclic must be 
-installed to use these functions.
+following functions. Note that the <Package>Polycyclic</Package> package
+must be installed to use these functions.
 <ManSection>
 <Func Name="AlmostCrystallographicPcpGroup" Arg="dim, type, parameters"/>
 <Func Name="AlmostCrystallographicPcpDim3" Arg="type, parameters"/>
@@ -84,15 +84,17 @@ to the corresponding pcp group can be obtained by the following function.
 <ManSection>
 <Attr Name="IsomorphismPcpGroup" Arg="G"/>
 <Description>
-We can use the polycyclic presentations of almost crystallographic
-groups to exhibit structure information on these groups. For example,
-we can determine their Fitting subgroup and ask group-theoretic 
-questions about this nilpotent group. The factor <M>G / Fit(G)</M> of an
-almost crystallographic group <M>G</M> is called <E>holonomy group</E>. We 
-provide access to this factor of a pcp group via the following 
-functions. Let <M>G</M> be an almost crystallographic pcp group.
+This returns an isomorphism from the almost crystallographic matrix
+group <A>G</A> onto the corresponding pcp group.
 </Description>
 </ManSection>
+We can use the polycyclic presentations of almost crystallographic
+groups to exhibit structure information on these groups. For example,
+we can determine their Fitting subgroup and ask group-theoretic
+questions about this nilpotent group. The factor <M>G / Fitt(G)</M> of an
+almost crystallographic group <M>G</M> is called <E>holonomy group</E>. We
+provide access to this factor of a pcp group via the following
+functions. Let <M>G</M> be an almost crystallographic pcp group.
 <ManSection>
 <Attr Name="HolonomyGroup" Arg="G"/>
 <Attr Name="NaturalHomomorphismOnHolonomyGroup" Arg="G"/>
@@ -139,8 +141,8 @@ additionally, it knows its type and defining parameters.
 <Attr Name="AlmostCrystallographicInfo" Arg="G"/>
 <Description>
 This attribute is set for groups from the library only. It is not possible
-at current to determine the type and the defining parameters for an arbitrary 
-almost crystallographic groups which is not defined by the library access 
+at present to determine the type and the defining parameters for an arbitrary
+almost crystallographic group which is not defined by the library access
 functions.
 <Log><![CDATA[
 gap> G := AlmostCrystallographicGroup( 4, 70, false );   
@@ -160,18 +162,15 @@ rec( dim := 4, type := 70, param := [ -3, 2, 5, 1, 0 ] )
 ]]></Log>
 We consider the types of almost crystallographic groups in more detail. The 
 almost crystallographic groups in dimensions 3 and 4 fall into three families
-<List>
-<Mark>(1)</Mark>
+<Enum>
 <Item> 3-dimensional almost crystallographic groups.
 </Item>
-<Mark>(2)</Mark>
 <Item> 4-dimensional almost crystallographic groups with a
            Fitting subgroup of class 2.
 </Item>
-<Mark>(3)</Mark>
 <Item> 4-dimensional almost crystallographic groups with a
            Fitting subgroup of class 3.</Item>
-</List>
+</Enum>
 These families are split up further into subfamilies in <Cite Key="KD"/> and to 
 each subfamily is assigned a type; that is, a string which is used to 
 identify the subfamily. As mentioned above, for the 3-dimensional almost 
@@ -194,7 +193,7 @@ For the last category of groups, the 4-dimensional almost crystallographic
 groups with a Fitting subgroup of class 3, the type is a string of 2 or 3
 characters, where the first character is always the letter <C>"B"</C>. This <C>"B"</C>
 is followed by the number of the table entry as found in <Cite Key="KD"/>,
-eventually followed by a <C>"b"</C> or <C>"c"</C> as in the previous case.
+possibly followed by a <C>"b"</C> or <C>"c"</C> as in the previous case.
 <P/>
 For each type of almost crystallographic group contained in the library
 there exists a function taking a parameter list as input and returning
@@ -221,7 +220,7 @@ Pcp-group with orders [ 0, 0, 0 ]
 </Section>
 <Section Label="The electronic versus the printed library">
 <Heading>The electronic versus the printed library</Heading>
-The package <C>aclib</C> can be considered as the electronic version of 
+The &AClib; package can be considered as the electronic version of 
 Chapter 7 of <Cite Key="KD"/>. In this section we outline the relationship 
 between the library presented in this manual and the printed version 
 in <Cite Key="KD"/>. First we consider an example. At page 175 of <Cite Key="KD"/>, 
@@ -260,11 +259,11 @@ we find the following groups in the table starting with entry <Q>13</Q>.
 </Display>
 <P/>
 <Display>H^2(Q,&ZZ;{})=&ZZ;{}\oplus(&ZZ;{}_2)^4=&ZZ;^{6}/A,</Display>
-<Display>A={(k_1,\ldots,k_6)\|
-k_1=0,k_2,\ldots, k_5\in 2&ZZ;{},k_6\in&ZZ;}</Display>
+<Display>A=\{(k_1,\ldots,k_6)\|
+k_1=0,\;k_2,\ldots, k_5\in 2&ZZ;{},\;k_6\in&ZZ;\}</Display>
 AB-groups:
 <P/>
-<M>\forall k&gt;0,k\equiv 0\bmod 2,&lt;(k,0,1,0,1,0)&gt;</M>
+<M>\forall k&gt;0,k\equiv 0\bmod 2,\langle(k,0,1,0,1,0)\rangle</M>
 <P/>
 The number <Q>13</Q> at the beginning of this entry is the type of the 
 almost crystallographic group in this library. This family of groups 
@@ -284,11 +283,11 @@ gap> G.6;
   [ 0, 0, 0, -1, 0 ], [ 0, 0, 0, 0, 1 ] ]
 ]]></Example>
 For a 4-dimensional almost crystallographic group the matrix group is 
-built up such that <M>{ a, b, c, d, \alpha, \beta, \gamma }</M> as described 
+built up such that <M>\{ a, b, c, d, \alpha, \beta, \gamma \}</M> as described 
 in <Cite Key="KD"/> forms the defining generating set of <M>G</M>. For certain types 
 the elements <M>\alpha</M>, <M>\beta</M> or <M>\gamma</M> may not be present.
-Similarly, for a 3-dimensional group we have the generating set <M>{ a, b, 
-c, \alpha, \beta }</M> and <M>\alpha</M> and <M>\beta</M> may be absent.
+Similarly, for a 3-dimensional group we have the generating set <M>\{ a, b,
+c, \alpha, \beta \}</M> and <M>\alpha</M> and <M>\beta</M> may be absent.
 <P/>
 To obtain a polycyclic generating sequence from the defining generators
 of the matrix group we have to order the elements in the generating set

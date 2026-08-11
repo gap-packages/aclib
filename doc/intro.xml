@@ -1,4 +1,3 @@
-<!-- W  aclib.tex                                               Karel Dekimpe / W                                                           Bettina Eick -->
 <Chapter Label="The Almost Crystallographic Groups Package">
 <Heading>The Almost Crystallographic Groups Package</Heading>
 A group is called <E>almost crystallographic</E> if it is a finitely generated 
@@ -27,14 +26,15 @@ The groups in this electronic catalog are available in two different
 representations: as rational matrix groups and as polycyclically presented
 groups. While the first representation is the more natural one, the latter
 description facilitates effective computations with the considered groups
-using the methods of the  Polycyclic package.
+using the methods of the <Package>Polycyclic</Package> package.
 <P/>
 The second aim of this package is to introduce a variety of algorithms for
 computations with polycyclically presented almost crystallographic groups. 
-These algorithms supplement the methods available in the  Polycyclic 
-package and give access to some methods which are interesting specifically 
-for almost crystallographic groups. In particular, we present methods to
-compute Betti numbers and to construct or check the existence of certain 
+These algorithms supplement the methods available in the
+<Package>Polycyclic</Package> package and give access to some methods which
+are interesting specifically for almost crystallographic groups. In
+particular, we present methods to compute Betti numbers and to construct or
+check the existence of certain 
 extensions of almost crystallographic groups. We note that these methods 
 have been applied in <Cite Key="DE1"/> and <Cite Key="DE2"/> for computations with 
 almost crystallographic groups.
@@ -42,7 +42,8 @@ almost crystallographic groups.
 Finally, we remark that almost crystallographic groups can be seen as natural 
 generalizations of crystallographic groups. A library of crystallographic 
 groups and algorithms to compute with crystallographic groups are available 
-in the &GAP; packages <C>cryst</C>, <C>carat</C> and <C>crystcat</C>.
+in the &GAP; packages <Package>Cryst</Package>,
+<Package>CaratInterface</Package> and <Package>CrystCat</Package>.
 <Section Label="More about almost crystallographic groups">
 <Heading>More about almost crystallographic groups</Heading>
 Almost crystallographic groups were first discussed in the theory of 
@@ -51,17 +52,17 @@ and we refer to <Cite Key="AUS"/>, <Cite Key="KD"/> and <Cite Key="LEE"/> for mo
 <P/>
 Let <M>L</M> be a connected and simply connected nilpotent Lie group. For 
 example, the 3-dimensional Heisenberg group, consisting of all upper 
-unitriangular <M>3\times3</M>--matrices with real entries is of this type.
-Then <M>L\rtimes { Aut}(L)</M> acts affinely (on the left) on <M>L</M> via
-<Display> \forall l,l'\in L,\forall \alpha \in { Aut}(L): 
+unitriangular <M>3\times3</M>-matrices with real entries is of this type.
+Then <M>L\rtimes Aut(L)</M> acts affinely (on the left) on <M>L</M> via
+<Display> \forall l,l'\in L,\forall \alpha \in Aut(L): \;
    ^{(l,\alpha)}l'=l  \alpha(l').  </Display>
 <P/>
-Let <M>C</M> be a maximal compact subgroup of <M>{ Aut}(L)</M>. Then a subgroup <M>G</M> 
+Let <M>C</M> be a maximal compact subgroup of <M>Aut(L)</M>. Then a subgroup <M>G</M>
 of <M>L \rtimes C</M> is said to be an almost crystallographic group if and only 
-if the action of <M>G</M> on <M>L</M>, induced by the action of <M>L\rtimes { Aut}(L)</M>,
-is properly discontinuous and the quotient space <M>G \backslash L</M> is compact. 
-One recovers the situation of the ordinary crystallographic groups by taking 
-<M>L={\Bbb R}^n</M>, for some <M>n</M>, and <M>C=O(n)</M>, the orthogonal group.
+if the action of <M>G</M> on <M>L</M>, induced by the action of <M>L\rtimes Aut(L)</M>,
+is properly discontinuous and the quotient space <M>G \setminus L</M> is compact.
+One recovers the situation of the ordinary crystallographic groups by taking
+<M>L=&RR;^n</M>, for some <M>n</M>, and <M>C=O(n)</M>, the orthogonal group.
 <P/>
 More generally, we say that an abstract group is an almost crystallographic
 group if it can be realized as a genuine almost crystallographic subgroup 
@@ -73,21 +74,17 @@ subgroup.
 <P/>
 <E>Theorem.</E>
 The following are equivalent for a polycyclic-by-finite group <M>G</M>:
-<List>
-<Mark>(1)</Mark>
+<Enum>
 <Item> <M>G</M> is an almost crystallographic group.
 </Item>
-<Mark>(2)</Mark>
 <Item> Fitt<M>(G)</M> is torsion free and of finite index in <M>G</M>.
 </Item>
-<Mark>(3)</Mark>
 <Item> <M>G</M> contains a torsion free nilpotent normal subgroup <M>N</M>
 of finite index in <M>G</M> with <M>C_G(N)</M> torsion free.
 </Item>
-<Mark>(4)</Mark>
 <Item> <M>G</M> has a nilpotent subgroup of finite index and there
 are no non-trivial finite normal subgroups in <M>G</M>.</Item>
-</List>
+</Enum>
 In particular, if <M>G</M> is almost crystallographic, then <M>G / Fitt(G)</M>
 is finite. This factor is called the <E>holonomy group</E> of <M>G</M>.
 <P/>

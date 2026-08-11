@@ -36,13 +36,13 @@ gap> ACDim4Types[50];
 gap> ACDim4Param[50];
 4
 
-# doc/aclib.xml:101-106
+# doc/aclib.xml:103-108
 gap> G := AlmostCrystallographicPcpGroup( 4, 50, [ 1, -4, 1, 2 ] );
 Pcp-group with orders [ 4, 0, 0, 0, 0 ]
 gap> Cgs(G);
 [ g1, g2, g3, g4, g5 ]
 
-# doc/aclib.xml:107-120
+# doc/aclib.xml:109-122
 gap> F := FittingSubgroup( G );
 Pcp-group with orders [ 0, 0, 0, 0 ]
 gap> Centre(F);
@@ -56,7 +56,7 @@ gap> UpperCentralSeries(F);
 gap> MinimalGeneratingSet(F);
 [ g2, g3, g4 ]
 
-# doc/aclib.xml:121-130
+# doc/aclib.xml:123-132
 gap> H := HolonomyGroup( G );
 Pcp-group with orders [ 4 ]
 gap> hom := NaturalHomomorphismOnHolonomyGroup( G );
@@ -66,7 +66,7 @@ Pcp-group with orders [ 2 ]
 gap> PreImage( hom, U );
 Pcp-group with orders [ 2, 0, 0, 0, 0 ]
 
-# doc/aclib.xml:211-218
+# doc/aclib.xml:210-217
 gap> ACDim3Funcs[15];
 function( k1, k2, k3, k4 ) ... end
 gap> ACDim3Funcs[15](1,1,1,1);
@@ -74,7 +74,7 @@ gap> ACDim3Funcs[15](1,1,1,1);
 gap> ACPcpDim3Funcs[1](1);
 Pcp-group with orders [ 0, 0, 0 ]
 
-# doc/aclib.xml:276-285
+# doc/aclib.xml:275-284
 gap> G:=AlmostCrystallographicDim4("013",[8,0,1,0,1,0]);
 <matrix group of size infinity with 6 generators>
 gap> G.5;
