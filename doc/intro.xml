@@ -26,24 +26,22 @@ The groups in this electronic catalog are available in two different
 representations: as rational matrix groups and as polycyclically presented
 groups. While the first representation is the more natural one, the latter
 description facilitates effective computations with the considered groups
-using the methods of the <Package>Polycyclic</Package> package.
+using the methods of the &Polycyclic; package.
 <P/>
 The second aim of this package is to introduce a variety of algorithms for
 computations with polycyclically presented almost crystallographic groups. 
-These algorithms supplement the methods available in the
-<Package>Polycyclic</Package> package and give access to some methods which
-are interesting specifically for almost crystallographic groups. In
-particular, we present methods to compute Betti numbers and to construct or
-check the existence of certain 
-extensions of almost crystallographic groups. We note that these methods 
+These algorithms supplement the methods available in the &Polycyclic;
+package and give access to some methods which are interesting specifically
+for almost crystallographic groups. In particular, we present methods to
+compute Betti numbers and to construct or check the existence of certain
+extensions of almost crystallographic groups. We note that these methods
 have been applied in <Cite Key="DE1"/> and <Cite Key="DE2"/> for computations with 
 almost crystallographic groups.
 <P/>
 Finally, we remark that almost crystallographic groups can be seen as natural 
 generalizations of crystallographic groups. A library of crystallographic 
 groups and algorithms to compute with crystallographic groups are available 
-in the &GAP; packages <Package>Cryst</Package>,
-<Package>CaratInterface</Package> and <Package>CrystCat</Package>.
+in the &GAP; packages &Cryst;, &CaratInterface; and &CrystCat;.
 <Section Label="More about almost crystallographic groups">
 <Heading>More about almost crystallographic groups</Heading>
 Almost crystallographic groups were first discussed in the theory of 

@@ -2,9 +2,9 @@
 <Heading>Example computations with almost crystallographic groups</Heading>
 <Section Label="Example computations I">
 <Heading>Example computations I</Heading>
-Using the functions available for pcp groups in the
-<Package>Polycyclic</Package> package it is now easy to redo some of the
-calculations of <Cite Key="KD"/>. As a first example we check whether the groups indicated 
+Using the functions available for pcp groups in the &Polycyclic; package
+it is now easy to redo some of the calculations of <Cite Key="KD"/>. As a
+first example we check whether the groups indicated
 as torsion free in <Cite Key="KD"/> are also determined as torsion free
 ones by &GAP;. In <Cite Key="KD"/> these almost Bieberbach groups are listed as 
 <Q>AB-groups</Q>. So for type <Q>013</Q> these are the groups with parameters 
@@ -88,8 +88,7 @@ which indeed coincides with the information in <Cite Key="KD"/>.
 <Section Label="Example computations III">
 <Heading>Example computations III</Heading>
 As another application of the capabilities of the combination of
-&AClib; and <Package>Polycyclic</Package> we check some computations of
-<Cite Key="DM"/>.
+&AClib; and &Polycyclic; we check some computations of <Cite Key="DM"/>.
 <P/>
 Section 5 of the paper <Cite Key="DM"/> is completely devoted to an example
 of the computation of the <M>P</M>-localization of a virtually nilpotent group,

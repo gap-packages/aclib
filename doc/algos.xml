@@ -3,12 +3,11 @@
 This chapter presents a variety of algorithms for almost crystallographic
 groups. In most cases, they assume a polycyclically presented group as 
 input; in particular, the input groups must be polycyclic in this case.
-The methods described here supplement the methods of the
-<Package>Polycyclic</Package> package for polycyclically presented groups.
-Many of the functions in this chapter are based on methods of the
-<Package>Polycyclic</Package> package and thus this package must be installed
-to use the functions introduced here. We refer to the
-<Package>Polycyclic</Package> package for further information on polycyclic
+The methods described here supplement the methods of the &Polycyclic;
+package for polycyclically presented groups. Many of the functions in this
+chapter are based on methods of the &Polycyclic; package and thus this
+package must be installed to use the functions introduced here. We refer to
+the &Polycyclic; package for further information on polycyclic
 presentations.
 <Section Label="Properties of almost crystallographic groups">
 <Heading>Properties of almost crystallographic groups</Heading>
@@ -69,9 +68,9 @@ to check the existence of certain extensions of <M>G</M>.
 <P/>
 First, it is well-known that the equivalence classes of extensions of <M>G</M>
 correspond to the second cohomology group of <M>G</M>. This cohomology group can
-be computed using the methods of the <Package>Polycyclic</Package> package
-for any explicitly given module of <M>G</M>. Further, we can construct a polycyclic
-presentation for each cocycle of the second cohomology group. We give an 
+be computed using the methods of the &Polycyclic; package for any
+explicitly given module of <M>G</M>. Further, we can construct a polycyclic
+presentation for each cocycle of the second cohomology group. We give an
 example for such a computation below.
 <P/>
 However, we may be interested in certain extensions only; for example, 

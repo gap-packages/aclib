@@ -83,8 +83,17 @@ AvailabilityTest := ReturnTrue,
 TestFile := "tst/testall.g",
 
 Keywords := ["almost crystallographic groups", "almost Bieberbach group",
-             "virtually nilpotent group", "nilpotent-by-finite group", 
-             "datalibrary of almost Bieberbach groups"]
+             "virtually nilpotent group", "nilpotent-by-finite group",
+             "datalibrary of almost Bieberbach groups"],
+
+AutoDoc := rec(
+  entities := rec(
+    Polycyclic     := "<Package>Polycyclic</Package>",
+    Cryst          := "<Package>Cryst</Package>",
+    CaratInterface := "<Package>CaratInterface</Package>",
+    CrystCat       := "<Package>CrystCat</Package>",
+  ),
+),
 
 ));
 

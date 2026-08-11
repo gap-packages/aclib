@@ -68,8 +68,8 @@ All the almost crystallographic groups considered in this package are
 polycyclic. Hence they have a polycyclic presentation and this can be
 used to facilitate efficient computations with the groups. To obtain the
 polycyclic presentation of an almost crystallographic group we supply the
-following functions. Note that the <Package>Polycyclic</Package> package
-must be installed to use these functions.
+following functions. Note that the &Polycyclic; package must be installed
+to use these functions.
 <ManSection>
 <Func Name="AlmostCrystallographicPcpGroup" Arg="dim, type, parameters"/>
 <Func Name="AlmostCrystallographicPcpDim3" Arg="type, parameters"/>
