@@ -48,7 +48,7 @@ CommunicatedBy := "Gerhard Hiss (Aachen)",
 AcceptDate := "02/2001",
 
 PackageWWWHome  := "https://gap-packages.github.io/aclib/",
-README_URL      := Concatenation( ~.PackageWWWHome, "README" ),
+README_URL      := Concatenation( ~.PackageWWWHome, "README.md" ),
 PackageInfoURL  := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
 SourceRepository := rec(
     Type := "git",
