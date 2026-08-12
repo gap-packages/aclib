@@ -1,5 +1,13 @@
 This file describes changes in the AClib package.
 
+## 1.4 (2026-08-12)
+
+  - Convert the manual to GAPDoc, built with AutoDoc via `makedoc.g`
+  - Fix typos, stale cross references and markup glitches in the manual
+  - Update the references to the two Dekimpe-Eick papers to their published
+    versions
+  - Various janitorial changes
+
 ## 1.3.3 (2025-08-28)
 
   - Reset the random number generator in the tests, for compatibility with
