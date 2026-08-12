@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<title>GAP (AClib) - Chapter 1: The Almost Crystallographic Groups Package</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="GAPDoc2HTML" />
+<link rel="stylesheet" type="text/css" href="manual.css" />
+<script src="manual.js" type="text/javascript"></script>
+<script type="text/javascript">overwriteStyle();</script>
+</head>
+<body class="chap1"  onload="jscontent()">
+
+
+<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0_mj.html">Top</a>  <a href="chap1_mj.html">1</a>  <a href="chap2_mj.html">2</a>  <a href="chap3_mj.html">3</a>  <a href="chap4_mj.html">4</a>  <a href="chapBib_mj.html">Bib</a>  <a href="chapInd_mj.html">Ind</a>  </div>
+
+<div class="chlinkprevnexttop">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap0_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap2_mj.html">[Next Chapter]</a>&nbsp;  </div>
+
+<p id="mathjaxlink" class="pcenter"><a href="chap1.html">[MathJax off]</a></p>
+<p><a id="X7FA1AADB787AF4CE" name="X7FA1AADB787AF4CE"></a></p>
+<div class="ChapSects"><a href="chap1_mj.html#X7FA1AADB787AF4CE">1 <span class="Heading">The Almost Crystallographic Groups Package</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap1_mj.html#X83608F0B78F4DEBC">1.1 <span class="Heading">More about almost crystallographic groups</span></a>
+</span>
+</div>
+</div>
+
+<h3>1 <span class="Heading">The Almost Crystallographic Groups Package</span></h3>
+
+<p>A group is called <em>almost crystallographic</em> if it is a finitely generated nilpotent-by-finite group without non-trivial finite normal subgroups. An important special case of almost crystallographic groups are the <em>almost Bieberbach groups</em>: these are almost crystallographic and torsion free.</p>
+
+<p>By its definition, an almost crystallographic group <span class="SimpleMath">\(G\)</span> has a finitely generated nilpotent normal subgroup <span class="SimpleMath">\(N\)</span> of finite index. Clearly, <span class="SimpleMath">\(N\)</span> is polycyclic and thus has a polycyclic series. The number of infinite cyclic factors in such a series for <span class="SimpleMath">\(N\)</span> is an invariant of <span class="SimpleMath">\(G\)</span>: the <em>Hirsch length</em> of <span class="SimpleMath">\(G\)</span>.</p>
+
+<p>For each almost crystallographic group of Hirsch length 3 and 4 there exists a representation as a rational matrix group in dimension 4 or 5, respectively. These representations can be considered as affine representations of dimension 3 or 4. Via these representations, the almost crystallographic groups act (properly discontinuously) on <span class="SimpleMath">\(ℝ^3\)</span> or <span class="SimpleMath">\(ℝ^4\)</span>. That is one reason to define the <em>dimension</em> of an almost crystallographic group as its Hirsch length.</p>
+
+<p>The 3-dimensional and a part of the 4-dimensional almost crystallographic groups have been classified by K. Dekimpe in <a href="chapBib_mj.html#biBKD">[Dek96]</a>. This classification includes all almost Bieberbach groups in dimension 3 and 4. It is the first central aim of this package to give access to the resulting library of groups. The groups in this electronic catalog are available in two different representations: as rational matrix groups and as polycyclically presented groups. While the first representation is the more natural one, the latter description facilitates effective computations with the considered groups using the methods of the <strong class="pkg">Polycyclic</strong> package.</p>
+
+<p>The second aim of this package is to introduce a variety of algorithms for computations with polycyclically presented almost crystallographic groups. These algorithms supplement the methods available in the <strong class="pkg">Polycyclic</strong> package and give access to some methods which are interesting specifically for almost crystallographic groups. In particular, we present methods to compute Betti numbers and to construct or check the existence of certain extensions of almost crystallographic groups. We note that these methods have been applied in <a href="chapBib_mj.html#biBDE1">[DE03]</a> and <a href="chapBib_mj.html#biBDE2">[DE02]</a> for computations with almost crystallographic groups.</p>
+
+<p>Finally, we remark that almost crystallographic groups can be seen as natural generalizations of crystallographic groups. A library of crystallographic groups and algorithms to compute with crystallographic groups are available in the <strong class="pkg">GAP</strong> packages <strong class="pkg">Cryst</strong>, <strong class="pkg">CaratInterface</strong> and <strong class="pkg">CrystCat</strong>.</p>
+
+<p><a id="X83608F0B78F4DEBC" name="X83608F0B78F4DEBC"></a></p>
+
+<h4>1.1 <span class="Heading">More about almost crystallographic groups</span></h4>
+
+<p>Almost crystallographic groups were first discussed in the theory of actions on Lie groups. We recall the original definition here briefly and we refer to <a href="chapBib_mj.html#biBAUS">[Aus60]</a>, <a href="chapBib_mj.html#biBKD">[Dek96]</a> and <a href="chapBib_mj.html#biBLEE">[Lee88]</a> for more details.</p>
+
+<p>Let <span class="SimpleMath">\(L\)</span> be a connected and simply connected nilpotent Lie group. For example, the 3-dimensional Heisenberg group, consisting of all upper unitriangular <span class="SimpleMath">\(3\times3\)</span>-matrices with real entries is of this type. Then <span class="SimpleMath">\(L\rtimes Aut(L)\)</span> acts affinely (on the left) on <span class="SimpleMath">\(L\)</span> via</p>
+
+<p class="center">\[ \forall l,l'\in L,\forall \alpha \in Aut(L): \;
+   ^{(l,\alpha)}l'=l  \alpha(l').  \]</p>
+
+<p>Let <span class="SimpleMath">\(C\)</span> be a maximal compact subgroup of <span class="SimpleMath">\(Aut(L)\)</span>. Then a subgroup <span class="SimpleMath">\(G\)</span> of <span class="SimpleMath">\(L \rtimes C\)</span> is said to be an almost crystallographic group if and only if the action of <span class="SimpleMath">\(G\)</span> on <span class="SimpleMath">\(L\)</span>, induced by the action of <span class="SimpleMath">\(L\rtimes Aut(L)\)</span>, is properly discontinuous and the quotient space <span class="SimpleMath">\(G \setminus L\)</span> is compact. One recovers the situation of the ordinary crystallographic groups by taking <span class="SimpleMath">\(L=ℝ^n\)</span>, for some <span class="SimpleMath">\(n\)</span>, and <span class="SimpleMath">\(C=O(n)\)</span>, the orthogonal group.</p>
+
+<p>More generally, we say that an abstract group is an almost crystallographic group if it can be realized as a genuine almost crystallographic subgroup of some <span class="SimpleMath">\(L \rtimes C\)</span>. In the following theorem we outline some algebraic characterizations of almost crystallographic groups; see Theorem 3.1.3 of <a href="chapBib_mj.html#biBKD">[Dek96]</a>. Recall that the <em>Fitting subgroup Fitt<span class="SimpleMath">\((G)\)</span></em> of a polycyclic-by-finite group <span class="SimpleMath">\(G\)</span> is its unique maximal normal nilpotent subgroup.</p>
+
+<p><em>Theorem.</em> The following are equivalent for a polycyclic-by-finite group <span class="SimpleMath">\(G\)</span>:</p>
+
+<ol>
+<li><p><span class="SimpleMath">\(G\)</span> is an almost crystallographic group.</p>
+
+</li>
+<li><p>Fitt<span class="SimpleMath">\((G)\)</span> is torsion free and of finite index in <span class="SimpleMath">\(G\)</span>.</p>
+
+</li>
+<li><p><span class="SimpleMath">\(G\)</span> contains a torsion free nilpotent normal subgroup <span class="SimpleMath">\(N\)</span> of finite index in <span class="SimpleMath">\(G\)</span> with <span class="SimpleMath">\(C_G(N)\)</span> torsion free.</p>
+
+</li>
+<li><p><span class="SimpleMath">\(G\)</span> has a nilpotent subgroup of finite index and there are no non-trivial finite normal subgroups in <span class="SimpleMath">\(G\)</span>.</p>
+
+</li>
+</ol>
+<p>In particular, if <span class="SimpleMath">\(G\)</span> is almost crystallographic, then <span class="SimpleMath">\(G / Fitt(G)\)</span> is finite. This factor is called the <em>holonomy group</em> of <span class="SimpleMath">\(G\)</span>.</p>
+
+<p>The dimension of an almost crystallographic group equals the dimension of the Lie group <span class="SimpleMath">\(L\)</span> above which coincides also with the Hirsch length of the polycyclic-by-finite group. This library therefore contains families of virtually nilpotent groups of Hirsch length 3 and 4.</p>
+
+
+<div class="chlinkprevnextbot">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap0_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap2_mj.html">[Next Chapter]</a>&nbsp;  </div>
+
+
+<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0_mj.html">Top</a>  <a href="chap1_mj.html">1</a>  <a href="chap2_mj.html">2</a>  <a href="chap3_mj.html">3</a>  <a href="chap4_mj.html">4</a>  <a href="chapBib_mj.html">Bib</a>  <a href="chapInd_mj.html">Ind</a>  </div>
+
+<hr />
+<p class="foot">generated by <a href="https://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc">GAPDoc2HTML</a></p>
+</body>
+</html>

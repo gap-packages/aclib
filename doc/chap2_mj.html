@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<title>GAP (AClib) - Chapter 2: Algorithms for almost crystallographic groups</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="GAPDoc2HTML" />
+<link rel="stylesheet" type="text/css" href="manual.css" />
+<script src="manual.js" type="text/javascript"></script>
+<script type="text/javascript">overwriteStyle();</script>
+</head>
+<body class="chap2"  onload="jscontent()">
+
+
+<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0_mj.html">Top</a>  <a href="chap1_mj.html">1</a>  <a href="chap2_mj.html">2</a>  <a href="chap3_mj.html">3</a>  <a href="chap4_mj.html">4</a>  <a href="chapBib_mj.html">Bib</a>  <a href="chapInd_mj.html">Ind</a>  </div>
+
+<div class="chlinkprevnexttop">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap1_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap3_mj.html">[Next Chapter]</a>&nbsp;  </div>
+
+<p id="mathjaxlink" class="pcenter"><a href="chap2.html">[MathJax off]</a></p>
+<p><a id="X85D8644F8737821C" name="X85D8644F8737821C"></a></p>
+<div class="ChapSects"><a href="chap2_mj.html#X85D8644F8737821C">2 <span class="Heading">Algorithms for almost crystallographic groups</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2_mj.html#X82FD57E87DDADD33">2.1 <span class="Heading">Properties of almost crystallographic groups</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X7E3716C57A21F982">2.1-1 IsAlmostCrystallographic</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X79B17DC283426DAE">2.1-2 IsAlmostBieberbachGroup</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2_mj.html#X8041A09F7BE8F6E3">2.2 <span class="Heading">Betti numbers</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X82B3D68D81489E49">2.2-1 OrientationModule</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X83EF7B888014C363">2.2-2 BettiNumber</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X7C3327917BE532FD">2.2-3 BettiNumbers</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2_mj.html#X789425E7817B0AAE">2.3 <span class="Heading">Determination of certain extensions</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X815877637885EA2A">2.3-1 HasExtensionOfType</a></span>
+</div></div>
+</div>
+
+<h3>2 <span class="Heading">Algorithms for almost crystallographic groups</span></h3>
+
+<p>This chapter presents a variety of algorithms for almost crystallographic groups. In most cases, they assume a polycyclically presented group as input; in particular, the input groups must be polycyclic in this case. The methods described here supplement the methods of the <strong class="pkg">Polycyclic</strong> package for polycyclically presented groups. Many of the functions in this chapter are based on methods of the <strong class="pkg">Polycyclic</strong> package and thus this package must be installed to use the functions introduced here. We refer to the <strong class="pkg">Polycyclic</strong> package for further information on polycyclic presentations.</p>
+
+<p><a id="X82FD57E87DDADD33" name="X82FD57E87DDADD33"></a></p>
+
+<h4>2.1 <span class="Heading">Properties of almost crystallographic groups</span></h4>
+
+<p><a id="X7E3716C57A21F982" name="X7E3716C57A21F982"></a></p>
+
+<h5>2.1-1 IsAlmostCrystallographic</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsAlmostCrystallographic</code>( <var class="Arg">G</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>This function checks if a polycyclically presented group <var class="Arg">G</var> is almost crystallographic; that is, it checks if <var class="Arg">G</var> is nilpotent-by-finite and has no non-trivial finite normal subgroup.</p>
+
+<p><a id="X79B17DC283426DAE" name="X79B17DC283426DAE"></a></p>
+
+<h5>2.1-2 IsAlmostBieberbachGroup</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsAlmostBieberbachGroup</code>( <var class="Arg">G</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>This function checks if a polycyclically presented group <var class="Arg">G</var> is almost Bieberbach; that is, it checks if <var class="Arg">G</var> is nilpotent-by-finite and torsion free.</p>
+
+<p><a id="X8041A09F7BE8F6E3" name="X8041A09F7BE8F6E3"></a></p>
+
+<h4>2.2 <span class="Heading">Betti numbers</span></h4>
+
+<p>Let <span class="SimpleMath">\(G\)</span> be a polycyclically presented and torsion free group of Hirsch length <span class="SimpleMath">\(n\)</span>. Then we can compute the Betti numbers <span class="SimpleMath">\(\beta_i(G)\)</span> for <span class="SimpleMath">\(i \in \{0, 1, 2, n-2, n-1, n\}\)</span>. If <span class="SimpleMath">\(n \leq 6\)</span>, then we can compute all Betti numbers <span class="SimpleMath">\(\beta_i(G)\)</span> for <span class="SimpleMath">\(0 \leq i \leq 6\)</span> of <span class="SimpleMath">\(G\)</span>. We introduce the following functions for this purpose and we refer to <a href="chapBib_mj.html#biBBRO">[Bro82]</a> for the details on the orientation module and the Betti numbers.</p>
+
+<p><a id="X82B3D68D81489E49" name="X82B3D68D81489E49"></a></p>
+
+<h5>2.2-1 OrientationModule</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; OrientationModule</code>( <var class="Arg">G</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>This function determines the orientation module of the polycyclically presented group <var class="Arg">G</var>; that is, it returns a list of matrices <span class="SimpleMath">\(m_1, \ldots, m_n \in GL( 1, ℤ )\)</span> which are the images of the <code class="code">Igs(G)</code> in their action on the orientation module.</p>
+
+<p><a id="X83EF7B888014C363" name="X83EF7B888014C363"></a></p>
+
+<h5>2.2-2 BettiNumber</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; BettiNumber</code>( <var class="Arg">G</var>, <var class="Arg">m</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>This function returns the <var class="Arg">m</var>th Betti number of the polycyclically presented torsion free group <var class="Arg">G</var> if <span class="SimpleMath">\(m \in \{0, 1, 2, n-2, n-1, n\}\)</span>, where <span class="SimpleMath">\(n\)</span> is the Hirsch length of <var class="Arg">G</var>.</p>
+
+<p><a id="X7C3327917BE532FD" name="X7C3327917BE532FD"></a></p>
+
+<h5>2.2-3 BettiNumbers</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; BettiNumbers</code>( <var class="Arg">G</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>This function returns the Betti numbers of the polycyclically presented torsion free group <var class="Arg">G</var> if the Hirsch length of <var class="Arg">G</var> is smaller than 7.</p>
+
+<p><a id="X789425E7817B0AAE" name="X789425E7817B0AAE"></a></p>
+
+<h4>2.3 <span class="Heading">Determination of certain extensions</span></h4>
+
+<p>Let <span class="SimpleMath">\(G\)</span> be a polycyclically presented almost crystallographic group. We want to check the existence of certain extensions of <span class="SimpleMath">\(G\)</span>.</p>
+
+<p>First, it is well-known that the equivalence classes of extensions of <span class="SimpleMath">\(G\)</span> correspond to the second cohomology group of <span class="SimpleMath">\(G\)</span>. This cohomology group can be computed using the methods of the <strong class="pkg">Polycyclic</strong> package for any explicitly given module of <span class="SimpleMath">\(G\)</span>. Further, we can construct a polycyclic presentation for each cocycle of the second cohomology group. We give an example for such a computation below.</p>
+
+<p>However, we may be interested in certain extensions only; for example, the torsion free extensions are often of particular interest. If the second cohomology group is finite, then we can compute a polycyclic presentation for each element of this group and check the resulting group for torsion freeness. But if the second cohomology group is infinite, then this approach is not available. Hence we introduce the following special method to cover this and related applications.</p>
+
+<p><a id="X815877637885EA2A" name="X815877637885EA2A"></a></p>
+
+<h5>2.3-1 HasExtensionOfType</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; HasExtensionOfType</code>( <var class="Arg">G</var>, <var class="Arg">torsionfree</var>, <var class="Arg">minimalcentre</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Suppose that <var class="Arg">G</var> is a polycyclically presented almost crystallographic group with Fitting subgroup <span class="SimpleMath">\(N\)</span>. This function checks if there is a <span class="SimpleMath">\(G\)</span>-module <span class="SimpleMath">\(M \cong ℤ\)</span> which is centralized by <span class="SimpleMath">\(N\)</span> such that there exists a torsion free extension of <span class="SimpleMath">\(M\)</span> by <var class="Arg">G</var> (if the flag <var class="Arg">torsionfree</var> is true) or an extension <span class="SimpleMath">\(E\)</span> with <span class="SimpleMath">\(Z(Fitt(E)) = M\)</span> (if the flag <var class="Arg">minimalcentre</var> is true) or an extension which satisfies both conditions (if both flags are true).</p>
+
+<p>We note that the existence of such extensions is of interest in the determination of extensions which are almost Bieberbach groups. We refer to <a href="chapBib_mj.html#biBDE1">[DE03]</a> for a more detailed account of this application and for further results of a similar nature.</p>
+
+
+<div class="chlinkprevnextbot">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap1_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap3_mj.html">[Next Chapter]</a>&nbsp;  </div>
+
+
+<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0_mj.html">Top</a>  <a href="chap1_mj.html">1</a>  <a href="chap2_mj.html">2</a>  <a href="chap3_mj.html">3</a>  <a href="chap4_mj.html">4</a>  <a href="chapBib_mj.html">Bib</a>  <a href="chapInd_mj.html">Ind</a>  </div>
+
+<hr />
+<p class="foot">generated by <a href="https://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc">GAPDoc2HTML</a></p>
+</body>
+</html>

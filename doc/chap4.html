@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>GAP (AClib) - Chapter 4: Example computations with almost crystallographic groups</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="GAPDoc2HTML" />
+<link rel="stylesheet" type="text/css" href="manual.css" />
+<script src="manual.js" type="text/javascript"></script>
+<script type="text/javascript">overwriteStyle();</script>
+</head>
+<body class="chap4"  onload="jscontent()">
+
+
+<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
+
+<div class="chlinkprevnexttop">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap3.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chapBib.html">[Next Chapter]</a>&nbsp;  </div>
+
+<p id="mathjaxlink" class="pcenter"><a href="chap4_mj.html">[MathJax on]</a></p>
+<p><a id="X7C0DE5CB793CE89A" name="X7C0DE5CB793CE89A"></a></p>
+<div class="ChapSects"><a href="chap4.html#X7C0DE5CB793CE89A">4 <span class="Heading">Example computations with almost crystallographic groups</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap4.html#X80E039CD78D8AB5A">4.1 <span class="Heading">Example computations I</span></a>
+</span>
+</div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap4.html#X7BC6880882A62AE0">4.2 <span class="Heading">Example computations II</span></a>
+</span>
+</div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap4.html#X8300997681CC60CE">4.3 <span class="Heading">Example computations III</span></a>
+</span>
+</div>
+</div>
+
+<h3>4 <span class="Heading">Example computations with almost crystallographic groups</span></h3>
+
+<p><a id="X80E039CD78D8AB5A" name="X80E039CD78D8AB5A"></a></p>
+
+<h4>4.1 <span class="Heading">Example computations I</span></h4>
+
+<p>Using the functions available for pcp groups in the <strong class="pkg">Polycyclic</strong> package it is now easy to redo some of the calculations of <a href="chapBib.html#biBKD">[Dek96]</a>. As a first example we check whether the groups indicated as torsion free in <a href="chapBib.html#biBKD">[Dek96]</a> are also determined as torsion free ones by <strong class="pkg">GAP</strong>. In <a href="chapBib.html#biBKD">[Dek96]</a> these almost Bieberbach groups are listed as <q>AB-groups</q>. So for type <q>013</q> these are the groups with parameters <span class="SimpleMath">(k,0,1,0,1,0)</span> where <span class="SimpleMath">k</span> is an even integer. Let's look at some examples in <strong class="pkg">GAP</strong>:</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=AlmostCrystallographicPcpDim4("013",[8,0,1,0,1,0]);</span>
+Pcp-group with orders [ 2, 2, 0, 0, 0, 0 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsTorsionFree(G);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=AlmostCrystallographicPcpDim4("013",[9,0,1,0,1,0]);</span>
+Pcp-group with orders [ 2, 2, 0, 0, 0, 0 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsTorsionFree(G);</span>
+false
+</pre></div>
+
+<p>Further, there is also some cohomology information in the tables of <a href="chapBib.html#biBKD">[Dek96]</a>. In fact, the groups in this library were obtained as extensions <span class="SimpleMath">E</span> of the form</p>
+
+<p class="pcenter">
+1 \rightarrow ℤ \rightarrow E \rightarrow Q \rightarrow 1
+</p>
+
+<p>where, in the 4-dimensional case <span class="SimpleMath">Q = E/⟨ d ⟩</span>. The cohomology information for the particular example above shows that the groups determined by a parameter set <span class="SimpleMath">(k_1,k_2,k_3,k_4,k_5,k_6)</span> are equivalent as extensions to the groups determined by the parameters <span class="SimpleMath">(k_1, k_2 mod 2, k_3 mod 2, k_4 mod 2, k_5 mod 2, 0)</span>. This is also visible in finding torsion:</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=AlmostCrystallographicPcpDim4("013",[10,0,2,0,1,0]);</span>
+Pcp-group with orders [ 2, 2, 0, 0, 0, 0 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsTorsionFree(G);</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=AlmostCrystallographicPcpDim4("013",[10,0,3,0,1,9]);</span>
+Pcp-group with orders [ 2, 2, 0, 0, 0, 0 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsTorsionFree(G);</span>
+true
+</pre></div>
+
+<p><a id="X7BC6880882A62AE0" name="X7BC6880882A62AE0"></a></p>
+
+<h4>4.2 <span class="Heading">Example computations II</span></h4>
+
+<p>The computation of cohomology groups played an important role in the classification of the almost Bieberbach groups in <a href="chapBib.html#biBKD">[Dek96]</a>. Using <strong class="pkg">GAP</strong>, it is now possible to check these computations. As an example we consider the 4-dimensional almost crystallographic group of type 85 on page 202 of <a href="chapBib.html#biBKD">[Dek96]</a>. This group <span class="SimpleMath">E</span> has 6 generators. In the table, one also finds the information</p>
+
+<p class="pcenter">
+H^2(Q,ℤ) = ℤ \oplus (ℤ_2)^2 \oplus ℤ_4
+</p>
+
+<p>for <span class="SimpleMath">Q=E/⟨ d ⟩</span> as above. Moreover, the <span class="SimpleMath">Q</span>-module <span class="SimpleMath">ℤ</span> is in fact the group <span class="SimpleMath">⟨ d ⟩</span>, where the <span class="SimpleMath">Q</span>-action comes from conjugation inside <span class="SimpleMath">E</span>. In the case of groups of type 85, <span class="SimpleMath">ℤ</span> is a trivial <span class="SimpleMath">Q</span>-module. The following example demonstrates how to (re)compute this two-cohomology group <span class="SimpleMath">H^2(Q,ℤ)</span>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=AlmostCrystallographicPcpGroup(4, "085", false);</span>
+Pcp-group with orders [ 2, 4, 0, 0, 0, 0 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GroupGeneratedByd:=Subgroup(G, [G.6] );</span>
+Pcp-group with orders [ 0 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Q:=G/GroupGeneratedByd;</span>
+Pcp-group with orders [ 2, 4, 0, 0, 0 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">action:=List( Pcp(Q), x -&gt; [[1]] );</span>
+[ [ [ 1 ] ], [ [ 1 ] ], [ [ 1 ] ], [ [ 1 ] ], [ [ 1 ] ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=CRRecordByMats( Q, action);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">TwoCohomologyCR( C ).factor.rels;</span>
+[ 2, 2, 4, 0 ]
+</pre></div>
+
+<p>This last line gives us the abelian invariants of the second cohomology group <span class="SimpleMath">H^2(Q,ℤ)</span>. So we should read this line as</p>
+
+<p class="pcenter">
+H^2(Q,ℤ) = ℤ_2 \oplus ℤ_2 \oplus ℤ_4 \oplus ℤ
+</p>
+
+<p>which indeed coincides with the information in <a href="chapBib.html#biBKD">[Dek96]</a>.</p>
+
+<p><a id="X8300997681CC60CE" name="X8300997681CC60CE"></a></p>
+
+<h4>4.3 <span class="Heading">Example computations III</span></h4>
+
+<p>As another application of the capabilities of the combination of <strong class="pkg">AClib</strong> and <strong class="pkg">Polycyclic</strong> we check some computations of <a href="chapBib.html#biBDM">[DM01]</a>.</p>
+
+<p>Section 5 of the paper <a href="chapBib.html#biBDM">[DM01]</a> is completely devoted to an example of the computation of the <span class="SimpleMath">P</span>-localization of a virtually nilpotent group, where <span class="SimpleMath">P</span> is a set of primes. Although it is not our intention to develop the theory of <span class="SimpleMath">P</span>-localization of groups at this place, let us summarize some of the main results concerning this topic here.</p>
+
+<p>For a set of primes <span class="SimpleMath">P</span>, we say that <span class="SimpleMath">n ∈ P</span> if and only if <span class="SimpleMath">n</span> is a product of primes in <span class="SimpleMath">P</span>. A group <span class="SimpleMath">G</span> is said to be <span class="SimpleMath">P</span>-local if and only if the map <span class="SimpleMath">μ_n:G→ G: g ↦ g^n</span> is bijective for all <span class="SimpleMath">n ∈ P'</span>, where <span class="SimpleMath">P'</span> is the set of all primes not in <span class="SimpleMath">P</span>. The <span class="SimpleMath">P</span>-localization of a group <span class="SimpleMath">G</span>, is a <span class="SimpleMath">P</span>-local group <span class="SimpleMath">G_P</span> together with a morphism <span class="SimpleMath">α :G → G_P</span> which satisfy the following universal property: For each <span class="SimpleMath">P</span>-local group <span class="SimpleMath">L</span> and any morphism <span class="SimpleMath">φ: G → L</span>, there exists a unique morphism <span class="SimpleMath">ψ:G_P → L</span>, such that <span class="SimpleMath">ψ ∘ α = φ</span>.</p>
+
+<p>This concept of localization is well developed for finite groups and for nilpotent groups. For a finite group <span class="SimpleMath">G</span>, the <span class="SimpleMath">P</span>-localization is the largest quotient of <span class="SimpleMath">G</span>, having no elements with an order belonging to <span class="SimpleMath">P'</span> (the morphism <span class="SimpleMath">α</span>, mentioned above is the natural projection).</p>
+
+<p>In <a href="chapBib.html#biBDM">[DM01]</a> a contribution is made towards the localization of virtually nilpotent groups. The theory developed in the paper is then illustrated in the last section of the paper by means of the computation of the <span class="SimpleMath">P</span>-localization of an almost crystallographic group. For their example the authors have chosen an almost crystallographic group <span class="SimpleMath">G</span> of dimension 3 and type 17. For the set of parameters <span class="SimpleMath">(k_1,k_2,k_3,k_4)</span> they have considered all cases of the form <span class="SimpleMath">(k_1,k_2,k_3,k_4)=(2,0,0,k_4)</span>.</p>
+
+<p>Here we will check their computations in two cases <span class="SimpleMath">k_4=0</span> and <span class="SimpleMath">k_4=1</span> using the set of primes <span class="SimpleMath">P={2}</span>. The holonomy group of these almost crystallographic groups <span class="SimpleMath">G</span> is the dihedral group <span class="SimpleMath">cal D_6</span> of order 12. Thus there is a short exact sequence of the form</p>
+
+<p class="pcenter"> 1 \rightarrow Fitt(G) \rightarrow G 
+     \rightarrow {\cal D}_6 \rightarrow 1. </p>
+
+<p>As a first step in their computation, Descheemaeker and Malfait determine the group <span class="SimpleMath">I_P'cal D_6</span>, which is the unique subgroup of order 3 in <span class="SimpleMath">cal D_6</span>. One of the main objects in <a href="chapBib.html#biBDM">[DM01]</a> is the group <span class="SimpleMath">K=p^-1 (I_P'cal D_6)</span>, where <span class="SimpleMath">p</span> is the natural projection of <span class="SimpleMath">G</span> onto its holonomy group. It is known that the <span class="SimpleMath">P</span>-localization of <span class="SimpleMath">G</span> coincides with the <span class="SimpleMath">P</span>-localization of <span class="SimpleMath">G/γ_3(K)</span>, where <span class="SimpleMath">γ_3(K)</span> is the third term in the lower central series of <span class="SimpleMath">K</span>. As <span class="SimpleMath">G/γ_3(K)</span> is finite in this example, we exactly know what this <span class="SimpleMath">P</span>-localization is. Let us now show how <strong class="pkg">GAP</strong> can be used to compute this <span class="SimpleMath">P</span>-localization in two cases:</p>
+
+<p>First case: The parameters are <span class="SimpleMath">(k_1,k_2,k_3,k_4)=(2,0,0,0)</span></p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := AlmostCrystallographicPcpGroup(3, 17, [2,0,0,0] );</span>
+Pcp-group with orders [ 2, 6, 0, 0, 0 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">projection := NaturalHomomorphismOnHolonomyGroup( G );</span>
+[ g1, g2, g3, g4, g5 ] -&gt; [ g1, g2, id, id, id ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F := HolonomyGroup( G );</span>
+Pcp-group with orders [ 2, 6 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IPprimeD6 := Subgroup( F , [F.2^2] );</span>
+Pcp-group with orders [ 3 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">K := PreImage( projection, IPprimeD6 );</span>
+Pcp-group with orders [ 3, 0, 0, 0 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PrintPcpPresentation( K );</span>
+g1^3 = id 
+g2 ^ g1 = g2^-1 * g3^-1
+g3 ^ g1 = g2 * g4^2
+g3 ^ g2 = g3 * g4^2
+g3 ^ g2^-1 = g3 * g4^-2
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Gamma3K := CommutatorSubgroup( K, CommutatorSubgroup( K, K ));</span>
+Pcp-group with orders [ 0, 0, 0 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">quotient := G/Gamma3K;</span>
+Pcp-group with orders [ 2, 6, 3, 3, 2 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S := SylowSubgroup( quotient, 3);</span>
+Pcp-group with orders [ 3, 3, 3 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">N := NormalClosure( quotient, S);</span>
+Pcp-group with orders [ 3, 3, 3 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">localization := quotient/N;</span>
+Pcp-group with orders [ 2, 2, 2 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PrintPcpPresentation( localization );</span>
+g1^2 = id 
+g2^2 = id 
+g3^2 = id 
+</pre></div>
+
+<p>This shows that <span class="SimpleMath">G_P≅ ℤ_2^3</span>.</p>
+
+<p>Second case: The parameters are <span class="SimpleMath">(k_1,k_2,k_3,k_4)=(2,0,0,1)</span></p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := AlmostCrystallographicPcpGroup(3, 17, [2,0,0,1]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">projection := NaturalHomomorphismOnHolonomyGroup( G );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F := HolonomyGroup( G );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IPprimeD6 := Subgroup( F , [F.2^2] );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">K := PreImage( projection, IPprimeD6 );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Gamma3K := CommutatorSubgroup( K, CommutatorSubgroup( K, K ));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">quotient := G/Gamma3K;;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S := SylowSubgroup( quotient, 3);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">N := NormalClosure( quotient, S);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">localization := quotient/N;</span>
+Pcp-group with orders [ 2, 2, 2 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PrintPcpPresentation( localization );</span>
+g1^2 = id 
+g2^2 = g3
+g3^2 = id 
+g2 ^ g1 = g2 * g3
+</pre></div>
+
+<p>In this case, we see that <span class="SimpleMath">G_P=cal D_4</span>.</p>
+
+<p>The reader can check that these results coincide with those obtained in <a href="chapBib.html#biBDM">[DM01]</a>. Note also that we used a somewhat different scheme to compute this localization than the one used in <a href="chapBib.html#biBDM">[DM01]</a>. We invite the reader to check the same computations, tracing exactly the steps made in <a href="chapBib.html#biBDM">[DM01]</a>.</p>
+
+<p> </p>
+
+
+<div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap3.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chapBib.html">[Next Chapter]</a>&nbsp;  </div>
+
+
+<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
+
+<hr />
+<p class="foot">generated by <a href="https://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc">GAPDoc2HTML</a></p>
+</body>
+</html>

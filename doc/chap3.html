@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>GAP (AClib) - Chapter 3: The catalog of almost crystallographic groups</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="GAPDoc2HTML" />
+<link rel="stylesheet" type="text/css" href="manual.css" />
+<script src="manual.js" type="text/javascript"></script>
+<script type="text/javascript">overwriteStyle();</script>
+</head>
+<body class="chap3"  onload="jscontent()">
+
+
+<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
+
+<div class="chlinkprevnexttop">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap2.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap4.html">[Next Chapter]</a>&nbsp;  </div>
+
+<p id="mathjaxlink" class="pcenter"><a href="chap3_mj.html">[MathJax on]</a></p>
+<p><a id="X78B765798617C637" name="X78B765798617C637"></a></p>
+<div class="ChapSects"><a href="chap3.html#X78B765798617C637">3 <span class="Heading">The catalog of almost crystallographic groups</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3.html#X7FCE27D88036AB18">3.1 <span class="Heading">Rational matrix groups</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X83B592E47CAA8D95">3.1-1 AlmostCrystallographicGroup</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3.html#X7C71B43687091EF7">3.2 <span class="Heading">Polycyclically presented groups</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7DB59CC984CFCCF1">3.2-1 AlmostCrystallographicPcpGroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X8771540F7A235763">3.2-2 IsomorphismPcpGroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X80C89B2D7828CF03">3.2-3 HolonomyGroup</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3.html#X7D926C6878454976">3.3 <span class="Heading">More about the type and the defining parameters</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7EE4DE2479EC0970">3.3-1 AlmostCrystallographicInfo</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3.html#X8109B4288116EA0A">3.4 <span class="Heading">The electronic versus the printed library</span></a>
+</span>
+</div>
+</div>
+
+<h3>3 <span class="Heading">The catalog of almost crystallographic groups</span></h3>
+
+<p>This chapter introduces the access functions to the catalog of 3- and 4-dimensional almost crystallographic groups. This catalog is an electronic version of the classification obtained in <a href="chapBib.html#biBKD">[Dek96]</a>.</p>
+
+<p><a id="X7FCE27D88036AB18" name="X7FCE27D88036AB18"></a></p>
+
+<h4>3.1 <span class="Heading">Rational matrix groups</span></h4>
+
+<p>The following three main functions are available to access the library of almost crystallographic groups as rational matrix groups.</p>
+
+<p><a id="X83B592E47CAA8D95" name="X83B592E47CAA8D95"></a></p>
+
+<h5>3.1-1 AlmostCrystallographicGroup</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AlmostCrystallographicGroup</code>( <var class="Arg">dim</var>, <var class="Arg">type</var>, <var class="Arg">parameters</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AlmostCrystallographicDim3</code>( <var class="Arg">type</var>, <var class="Arg">parameters</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AlmostCrystallographicDim4</code>( <var class="Arg">type</var>, <var class="Arg">parameters</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p><var class="Arg">dim</var> is the dimension of the required group. Thus <var class="Arg">dim</var> must be either 3 or 4. The inputs <var class="Arg">type</var> and <var class="Arg">parameters</var> are used to define the desired group as described in <a href="chapBib.html#biBKD">[Dek96]</a>. We outline the possible choices for <var class="Arg">type</var> and <var class="Arg">parameters</var> here briefly. A more extended description is given later in Section <a href="chap3.html#X7D926C6878454976"><span class="RefLink">3.3</span></a> or can be obtained from <a href="chapBib.html#biBKD">[Dek96]</a>.</p>
+
+<p><var class="Arg">type</var> specifies the type of the required group. There are 17 types in dimension 3 and 95 types in dimension 4. The input <var class="Arg">type</var> can either be an integer defining the position of the desired type among all types; that is, in this case <var class="Arg">type</var> is a number in [1..17] in dimension 3 or a number in [1..95] in dimension 4. Alternatively, <var class="Arg">type</var> can be a string defining the desired type. In dimension 3 the possible strings are <code class="code">"01"</code>, <code class="code">"02"</code>, <span class="SimpleMath">...</span>, <code class="code">"17"</code>. In dimension 4 the possible strings are listed in the list <code class="code">ACDim4Types</code> and thus can be accessed from <strong class="pkg">GAP</strong>.</p>
+
+<p><var class="Arg">parameters</var> is a list of integers. Its length depends on the type of the chosen group. The lists <code class="code">ACDim3Param</code> and <code class="code">ACDim4Param</code> contain at position <span class="SimpleMath">i</span> the length of the parameter list for the type number <span class="SimpleMath">i</span>. Every list of integers of this length is a valid <var class="Arg">parameter</var> input. Alternatively, one can input <code class="keyw">false</code> instead of a parameter list. Then <strong class="pkg">GAP</strong> will choose a random parameter list of suitable length.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := AlmostCrystallographicGroup( 4, 50, [ 1, -4, 1, 2 ] );</span>
+&lt;matrix group of size infinity with 5 generators&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DimensionOfMatrixGroup( G );</span>
+5
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">FieldOfMatrixGroup( G );</span>
+Rationals
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GeneratorsOfGroup( G );</span>
+[ [ [ 1, 0, -1/2, 0, 0 ], [ 0, 1, 0, 0, 1 ], [ 0, 0, 1, 0, 0 ], 
+      [ 0, 0, 0, 1, 0 ], [ 0, 0, 0, 0, 1 ] ], 
+  [ [ 1, 1/2, 0, 0, 0 ], [ 0, 1, 0, 0, 0 ], [ 0, 0, 1, 0, 1 ], 
+      [ 0, 0, 0, 1, 0 ], [ 0, 0, 0, 0, 1 ] ], 
+  [ [ 1, 0, 0, 0, 0 ], [ 0, 1, 0, 0, 0 ], [ 0, 0, 1, 0, 0 ], 
+      [ 0, 0, 0, 1, 1 ], [ 0, 0, 0, 0, 1 ] ], 
+  [ [ 1, 0, 0, 0, 1 ], [ 0, 1, 0, 0, 0 ], [ 0, 0, 1, 0, 0 ], 
+      [ 0, 0, 0, 1, 0 ], [ 0, 0, 0, 0, 1 ] ], 
+  [ [ 1, -4, 1, 0, 1/2 ], [ 0, 0, -1, 0, 0 ], [ 0, 1, 0, 0, 0 ], 
+      [ 0, 0, 0, 1, 1/4 ], [ 0, 0, 0, 0, 1 ] ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G.1;</span>
+[ [ 1, 0, -1/2, 0, 0 ], [ 0, 1, 0, 0, 1 ], [ 0, 0, 1, 0, 0 ], 
+  [ 0, 0, 0, 1, 0 ], [ 0, 0, 0, 0, 1 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ACDim4Types[50];</span>
+"076"
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ACDim4Param[50];</span>
+4
+</pre></div>
+
+<p><a id="X7C71B43687091EF7" name="X7C71B43687091EF7"></a></p>
+
+<h4>3.2 <span class="Heading">Polycyclically presented groups</span></h4>
+
+<p>All the almost crystallographic groups considered in this package are polycyclic. Hence they have a polycyclic presentation and this can be used to facilitate efficient computations with the groups. To obtain the polycyclic presentation of an almost crystallographic group we supply the following functions. Note that the <strong class="pkg">Polycyclic</strong> package must be installed to use these functions.</p>
+
+<p><a id="X7DB59CC984CFCCF1" name="X7DB59CC984CFCCF1"></a></p>
+
+<h5>3.2-1 AlmostCrystallographicPcpGroup</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AlmostCrystallographicPcpGroup</code>( <var class="Arg">dim</var>, <var class="Arg">type</var>, <var class="Arg">parameters</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AlmostCrystallographicPcpDim3</code>( <var class="Arg">type</var>, <var class="Arg">parameters</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AlmostCrystallographicPcpDim4</code>( <var class="Arg">type</var>, <var class="Arg">parameters</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>The input is the same as for the corresponding matrix group functions. The output is a pcp group isomorphic to the corresponding matrix group. An explicit isomorphism from an almost crystallographic matrix group to the corresponding pcp group can be obtained by the following function.</p>
+
+<p><a id="X8771540F7A235763" name="X8771540F7A235763"></a></p>
+
+<h5>3.2-2 IsomorphismPcpGroup</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsomorphismPcpGroup</code>( <var class="Arg">G</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>This returns an isomorphism from the almost crystallographic matrix group <var class="Arg">G</var> onto the corresponding pcp group.</p>
+
+<p>We can use the polycyclic presentations of almost crystallographic groups to exhibit structure information on these groups. For example, we can determine their Fitting subgroup and ask group-theoretic questions about this nilpotent group. The factor <span class="SimpleMath">G / Fitt(G)</span> of an almost crystallographic group <span class="SimpleMath">G</span> is called <em>holonomy group</em>. We provide access to this factor of a pcp group via the following functions. Let <span class="SimpleMath">G</span> be an almost crystallographic pcp group.</p>
+
+<p><a id="X80C89B2D7828CF03" name="X80C89B2D7828CF03"></a></p>
+
+<h5>3.2-3 HolonomyGroup</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; HolonomyGroup</code>( <var class="Arg">G</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NaturalHomomorphismOnHolonomyGroup</code>( <var class="Arg">G</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>The following example shows applications of these functions.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := AlmostCrystallographicPcpGroup( 4, 50, [ 1, -4, 1, 2 ] );</span>
+Pcp-group with orders [ 4, 0, 0, 0, 0 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Cgs(G);</span>
+[ g1, g2, g3, g4, g5 ]
+</pre></div>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F := FittingSubgroup( G );</span>
+Pcp-group with orders [ 0, 0, 0, 0 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Centre(F);</span>
+Pcp-group with orders [ 0, 0 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LowerCentralSeries(F);</span>
+[ Pcp-group with orders [ 0, 0, 0, 0 ], Pcp-group with orders [ 0 ], 
+  Pcp-group with orders [  ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UpperCentralSeries(F);</span>
+[ Pcp-group with orders [ 0, 0, 0, 0 ], Pcp-group with orders [ 0, 0 ], 
+  Pcp-group with orders [  ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimalGeneratingSet(F);</span>
+[ g2, g3, g4 ]
+</pre></div>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H := HolonomyGroup( G );</span>
+Pcp-group with orders [ 4 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">hom := NaturalHomomorphismOnHolonomyGroup( G );</span>
+[ g1, g2, g3, g4, g5 ] -&gt; [ g1, id, id, id, id ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">U := Subgroup( H, [Pcp(H)[1]^2] );</span>
+Pcp-group with orders [ 2 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreImage( hom, U );</span>
+Pcp-group with orders [ 2, 0, 0, 0, 0 ]
+</pre></div>
+
+<p><a id="X7D926C6878454976" name="X7D926C6878454976"></a></p>
+
+<h4>3.3 <span class="Heading">More about the type and the defining parameters</span></h4>
+
+<p>Each group from this library knows that it is almost crystallographic and, additionally, it knows its type and defining parameters.</p>
+
+<p><a id="X7EE4DE2479EC0970" name="X7EE4DE2479EC0970"></a></p>
+
+<h5>3.3-1 AlmostCrystallographicInfo</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AlmostCrystallographicInfo</code>( <var class="Arg">G</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>This attribute is set for groups from the library only. It is not possible at present to determine the type and the defining parameters for an arbitrary almost crystallographic group which is not defined by the library access functions.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := AlmostCrystallographicGroup( 4, 70, false );   </span>
+&lt;matrix group of size infinity with 5 generators&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsAlmostCrystallographic(G);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AlmostCrystallographicInfo(G);</span>
+rec( dim := 4, type := 70, param := [ 1, -4, 1, 2, -3 ] )
+</pre></div>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := AlmostCrystallographicPcpGroup( 4, 70, false );</span>
+Pcp-group with orders [ 6, 0, 0, 0, 0 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsAlmostCrystallographic(G);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AlmostCrystallographicInfo(G);</span>
+rec( dim := 4, type := 70, param := [ -3, 2, 5, 1, 0 ] )
+</pre></div>
+
+<p>We consider the types of almost crystallographic groups in more detail. The almost crystallographic groups in dimensions 3 and 4 fall into three families</p>
+
+<ol>
+<li><p>3-dimensional almost crystallographic groups.</p>
+
+</li>
+<li><p>4-dimensional almost crystallographic groups with a Fitting subgroup of class 2.</p>
+
+</li>
+<li><p>4-dimensional almost crystallographic groups with a Fitting subgroup of class 3.</p>
+
+</li>
+</ol>
+<p>These families are split up further into subfamilies in <a href="chapBib.html#biBKD">[Dek96]</a> and to each subfamily is assigned a type; that is, a string which is used to identify the subfamily. As mentioned above, for the 3-dimensional almost crystallographic groups the type is a string representing the numbers from 1 to 17, i.e. the available types are <code class="code">"01"</code>, <code class="code">"02"</code>, <span class="SimpleMath">...</span>, <code class="code">"17"</code>.</p>
+
+<p>For the 4-dimensional almost crystallographic groups with a Fitting subgroup of class 2 the type is a string of 3 or 4 characters. In general, a string of 3 characters representing the number of the table entry in <a href="chapBib.html#biBKD">[Dek96]</a> is used. So possible types are <code class="code">"001"</code>, <code class="code">"002"</code>, <span class="SimpleMath">...</span>. The reader is warned however that not all possible numbers are used, e.g. there are no groups of type <code class="code">"016"</code>. Also, the types do not appear in their natural order in <a href="chapBib.html#biBKD">[Dek96]</a>. Moreover, for certain numbers there is more than one family of groups listed in <a href="chapBib.html#biBKD">[Dek96]</a>. For example, the 3 families of groups corresponding to number 19 on pages 179-180 of <a href="chapBib.html#biBKD">[Dek96]</a> have types <code class="code">"019"</code>, <code class="code">"019b"</code> and <code class="code">"019c"</code> (the order is the one given in <a href="chapBib.html#biBKD">[Dek96]</a>).</p>
+
+<p>For the last category of groups, the 4-dimensional almost crystallographic groups with a Fitting subgroup of class 3, the type is a string of 2 or 3 characters, where the first character is always the letter <code class="code">"B"</code>. This <code class="code">"B"</code> is followed by the number of the table entry as found in <a href="chapBib.html#biBKD">[Dek96]</a>, possibly followed by a <code class="code">"b"</code> or <code class="code">"c"</code> as in the previous case.</p>
+
+<p>For each type of almost crystallographic group contained in the library there exists a function taking a parameter list as input and returning the desired matrix or pcp group. These functions can be accessed from <strong class="pkg">GAP</strong> using the lists <code class="code">ACDim3Funcs</code>, <code class="code">ACDim4Funcs</code>, <code class="code">ACPcpDim3Funcs</code> and <code class="code">ACPcpDim4Funcs</code> which consist of the corresponding functions.</p>
+
+<p>Although we include these direct access functions here for completeness, we note that the user should in general use the higher-level functions introduced above to obtain almost crystallographic groups from the library. In particular, these low-level access functions return matrix or pcp groups, but the almost crystallographic info flags will not be attached to them.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ACDim3Funcs[15];</span>
+function( k1, k2, k3, k4 ) ... end
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ACDim3Funcs[15](1,1,1,1);</span>
+&lt;matrix group with 5 generators&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ACPcpDim3Funcs[1](1);</span>
+Pcp-group with orders [ 0, 0, 0 ]
+</pre></div>
+
+<p><a id="X8109B4288116EA0A" name="X8109B4288116EA0A"></a></p>
+
+<h4>3.4 <span class="Heading">The electronic versus the printed library</span></h4>
+
+<p>The <strong class="pkg">AClib</strong> package can be considered as the electronic version of Chapter 7 of <a href="chapBib.html#biBKD">[Dek96]</a>. In this section we outline the relationship between the library presented in this manual and the printed version in <a href="chapBib.html#biBKD">[Dek96]</a>. First we consider an example. At page 175 of <a href="chapBib.html#biBKD">[Dek96]</a>, we find the following groups in the table starting with entry <q>13</q>.</p>
+
+<p>13. <span class="SimpleMath">Q=P2/c</span></p>
+
+<p class="pcenter">
+\matrix{ E:\langle a,b,c,d,\alpha,\beta\| &amp;  {[b,a]=1}\hskip 1.61cm 
+       {[d,a]=1}
+  &amp; \rangle \cr
+               &amp;    \matrix{ {[c,a]=d^{2 k_1}}  &amp; {[d,b]=1} \cr
+                    {[c,b]=1}  &amp; {[d,c]=1} \cr
+\alpha a=a^{-1}\alpha d^{k_{2}}   &amp; \alpha^2=d^{k_3} \cr
+\alpha b=b\alpha   &amp; \alpha d= d \alpha \cr
+\alpha c=c^{-1}\alpha d^{-2 k_6}   &amp; \cr
+\beta a=a^{-1}\beta d^{k_1+k_2}   &amp; \beta^2=d^{k_5} \cr
+\beta b=b^{-1}\beta d^{k_4}  &amp; \beta d= d \beta \cr
+\beta c=c^{-1}\beta d^{-2 k_6}  &amp; \alpha \beta=c\beta\alpha d^{k_6}
+ } &amp; } 
+</p>
+
+<p class="pcenter">\lambda(\alpha)=\left(\matrix{
+1&amp; \frac{k_1}{2}+k_2 &amp; 0 &amp; -2 k_6 &amp; \frac{k_3}{2}+\frac{k_6}{2} \cr
+0&amp; -1 &amp; 0 &amp; 0 &amp; 0 \cr
+0 &amp; 0&amp; 1  &amp;  0 &amp; 0 \cr
+0 &amp; 0 &amp; 0 &amp; -1 &amp; \frac12\cr
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 1
+}\right)
+\lambda(\beta)=\left(\matrix{
+1&amp; k_1+k_2 &amp; k_4 &amp; -2 k_6 &amp; \frac{k_5}{2} \cr
+0&amp; -1 &amp; 0 &amp; 0 &amp; 0 \cr
+0 &amp; 0&amp; -1  &amp;  0 &amp; 0 \cr
+0 &amp; 0 &amp; 0 &amp; -1 &amp; 0\cr
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 1
+    }\right)
+</p>
+
+<p class="pcenter">H^2(Q,ℤ{})=ℤ{}\oplus(ℤ{}_2)^4=ℤ^{6}/A,</p>
+
+<p class="pcenter">A=\{(k_1,\ldots,k_6)\|
+k_1=0,\;k_2,\ldots, k_5\in 2ℤ{},\;k_6\inℤ\}</p>
+
+<p>AB-groups:</p>
+
+<p><span class="SimpleMath">∀ k&gt;0,k≡ 0mod 2,⟨(k,0,1,0,1,0)⟩</span></p>
+
+<p>The number <q>13</q> at the beginning of this entry is the type of the almost crystallographic group in this library. This family of groups with type 13 depends on 6 parameters <span class="SimpleMath">k_1, k_2, ..., k_6</span> and these are the <var class="Arg">parameters</var> list in this library. The rational matrix representation in <strong class="pkg">GAP</strong> corresponds exactly to the printed version in <a href="chapBib.html#biBKD">[Dek96]</a> where it is named <span class="SimpleMath">λ</span>. In the example below, we consider the group with parameters <span class="SimpleMath">(k_1,k_2,k_3,k_4,k_5,k_6)=(8,0,1,0,1,0)</span>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=AlmostCrystallographicDim4("013",[8,0,1,0,1,0]);</span>
+&lt;matrix group of size infinity with 6 generators&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G.5;</span>
+[ [ 1, 4, 0, 0, 1/2 ], [ 0, -1, 0, 0, 0 ], [ 0, 0, 1, 0, 0 ], 
+  [ 0, 0, 0, -1, 1/2 ], [ 0, 0, 0, 0, 1 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G.6;</span>
+[ [ 1, 8, 0, 0, 1/2 ], [ 0, -1, 0, 0, 0 ], [ 0, 0, -1, 0, 0 ], 
+  [ 0, 0, 0, -1, 0 ], [ 0, 0, 0, 0, 1 ] ]
+</pre></div>
+
+<p>For a 4-dimensional almost crystallographic group the matrix group is built up such that <span class="SimpleMath">{ a, b, c, d, α, β, γ }</span> as described in <a href="chapBib.html#biBKD">[Dek96]</a> forms the defining generating set of <span class="SimpleMath">G</span>. For certain types the elements <span class="SimpleMath">α</span>, <span class="SimpleMath">β</span> or <span class="SimpleMath">γ</span> may not be present. Similarly, for a 3-dimensional group we have the generating set <span class="SimpleMath">{ a, b, c, α, β }</span> and <span class="SimpleMath">α</span> and <span class="SimpleMath">β</span> may be absent.</p>
+
+<p>To obtain a polycyclic generating sequence from the defining generators of the matrix group we have to order the elements in the generating set suitably. For this purpose we take the subsequence of <span class="SimpleMath">(γ, β, α, a, b, c, d)</span> of those generators which are present in the defining generating set of the matrix group. This new ordering of the generators is then used to define a polycyclic presentation of the given almost crystallographic group.</p>
+
+
+<div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap2.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap4.html">[Next Chapter]</a>&nbsp;  </div>
+
+
+<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
+
+<hr />
+<p class="foot">generated by <a href="https://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc">GAPDoc2HTML</a></p>
+</body>
+</html>
