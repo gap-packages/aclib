@@ -1,0 +1,201 @@
+<Chapter Label="Example computations with almost crystallographic groups">
+<Heading>Example computations with almost crystallographic groups</Heading>
+<Section Label="Example computations I">
+<Heading>Example computations I</Heading>
+Using the functions available for pcp groups in the &Polycyclic; package
+it is now easy to redo some of the calculations of <Cite Key="KD"/>. As a
+first example we check whether the groups indicated
+as torsion free in <Cite Key="KD"/> are also determined as torsion free
+ones by &GAP;. In <Cite Key="KD"/> these almost Bieberbach groups are listed as 
+<Q>AB-groups</Q>. So for type <Q>013</Q> these are the groups with parameters 
+<M>(k,0,1,0,1,0)</M> where <M>k</M> is an even integer. Let's look at some examples 
+in &GAP;:
+<Example><![CDATA[
+gap> G:=AlmostCrystallographicPcpDim4("013",[8,0,1,0,1,0]);
+Pcp-group with orders [ 2, 2, 0, 0, 0, 0 ]
+gap> IsTorsionFree(G);
+true
+gap> G:=AlmostCrystallographicPcpDim4("013",[9,0,1,0,1,0]);
+Pcp-group with orders [ 2, 2, 0, 0, 0, 0 ]
+gap> IsTorsionFree(G);
+false
+]]></Example>
+Further, there is also some cohomology information in the tables 
+of <Cite Key="KD"/>. In fact, the groups in this library were obtained
+as extensions <M>E</M> of the form
+<P/>
+<Display>
+1 \rightarrow &ZZ; \rightarrow E \rightarrow Q \rightarrow 1
+</Display>
+<P/>
+where, in the 4-dimensional case <M>Q = E/\langle d \rangle</M>. The 
+cohomology information for the particular example above shows that 
+the groups determined by a parameter set <M>(k_1,k_2,k_3,k_4,k_5,k_6)</M> 
+are equivalent as extensions to the groups determined by the parameters 
+<M>(k_1, k_2 \bmod 2, k_3 \bmod 2, k_4 \bmod 2, k_5 \bmod 2, 0)</M>. This is 
+also visible in finding torsion:
+<Example><![CDATA[
+gap> G:=AlmostCrystallographicPcpDim4("013",[10,0,2,0,1,0]);
+Pcp-group with orders [ 2, 2, 0, 0, 0, 0 ]
+gap> IsTorsionFree(G);
+false
+gap> G:=AlmostCrystallographicPcpDim4("013",[10,0,3,0,1,9]);
+Pcp-group with orders [ 2, 2, 0, 0, 0, 0 ]
+gap> IsTorsionFree(G);
+true
+]]></Example>
+</Section>
+<Section Label="Example computations II">
+<Heading>Example computations II</Heading>
+The computation of cohomology groups played an important role in the 
+classification of the almost Bieberbach groups in <Cite Key="KD"/>. Using 
+&GAP;, it is now possible to check these computations. As an example we 
+consider the 4-dimensional almost crystallographic group of type 85 on
+page 202 of <Cite Key="KD"/>. This group <M>E</M> has 6 generators. In the table, one 
+also finds the information
+<P/>
+<Display>
+H^2(Q,&ZZ;) = &ZZ; \oplus (&ZZ;_2)^2 \oplus &ZZ;_4
+</Display>
+<P/>
+for <M>Q=E/\langle d \rangle</M> as above. Moreover, the <M>Q</M>-module <M>&ZZ;</M> is 
+in fact the group <M>\langle d \rangle</M>, where the <M>Q</M>-action comes from 
+conjugation inside <M>E</M>. In the case of groups of type 85, <M>&ZZ;</M> is a 
+trivial <M>Q</M>-module. The following example demonstrates how to (re)compute 
+this two-cohomology group <M>H^2(Q,&ZZ;)</M>.
+<Example><![CDATA[
+gap> G:=AlmostCrystallographicPcpGroup(4, "085", false);
+Pcp-group with orders [ 2, 4, 0, 0, 0, 0 ]
+gap> GroupGeneratedByd:=Subgroup(G, [G.6] );
+Pcp-group with orders [ 0 ]
+gap> Q:=G/GroupGeneratedByd;
+Pcp-group with orders [ 2, 4, 0, 0, 0 ]
+gap> action:=List( Pcp(Q), x -> [[1]] );
+[ [ [ 1 ] ], [ [ 1 ] ], [ [ 1 ] ], [ [ 1 ] ], [ [ 1 ] ] ]
+gap> C:=CRRecordByMats( Q, action);;
+gap> TwoCohomologyCR( C ).factor.rels;
+[ 2, 2, 4, 0 ]
+]]></Example>
+This last line gives us the abelian invariants of the second 
+cohomology group <M>H^2(Q,&ZZ;)</M>. So we should read this line as
+<P/>
+<Display>
+H^2(Q,&ZZ;) = &ZZ;_2 \oplus &ZZ;_2 \oplus &ZZ;_4 \oplus &ZZ;
+</Display>
+<P/>
+which indeed coincides with the information in <Cite Key="KD"/>.
+</Section>
+<Section Label="Example computations III">
+<Heading>Example computations III</Heading>
+As another application of the capabilities of the combination of
+&AClib; and &Polycyclic; we check some computations of <Cite Key="DM"/>.
+<P/>
+Section 5 of the paper <Cite Key="DM"/> is completely devoted to an example
+of the computation of the <M>P</M>-localization of a virtually nilpotent group,
+where <M>P</M> is a set of primes. Although it is not our intention to 
+develop the theory of <M>P</M>-localization of groups at this place, let us
+summarize some of the main results concerning this topic here.
+<P/>
+For a set of primes <M>P</M>, we say that <M>n \in P</M> if and only if <M>n</M> is
+a product of primes in <M>P</M>. A group <M>G</M> is said to be <M>P</M>-local if and 
+only if the map <M>\mu_n:G\rightarrow G: g \mapsto g^n</M> is bijective for 
+all <M>n \in P'</M>, where <M>P'</M> is the set of all primes not in <M>P</M>. The 
+<M>P</M>-localization of a group <M>G</M>, is a <M>P</M>-local group <M>G_P</M> together 
+with a morphism <M>\alpha :G \rightarrow G_P</M> which satisfy the following 
+universal property: For each <M>P</M>-local group <M>L</M> and any morphism 
+<M>\varphi: G \rightarrow L</M>, there exists a unique morphism <M>\psi:G_P 
+\rightarrow L</M>, such that <M>\psi \circ \alpha = \varphi</M>.
+<P/>
+This concept of localization is well developed for finite groups and 
+for nilpotent groups. For a finite group <M>G</M>, the <M>P</M>-localization is 
+the largest quotient of <M>G</M>, having no elements with an order belonging to 
+<M>P'</M> (the morphism <M>\alpha</M>, mentioned above is the natural projection).
+<P/>
+In <Cite Key="DM"/> a contribution is made towards the localization of virtually 
+nilpotent groups. The theory developed in the paper is then illustrated 
+in the last section of the paper by means of the computation of the 
+<M>P</M>-localization of an almost crystallographic group. For their example
+the authors have chosen an almost crystallographic group <M>G</M> of dimension 3
+and type 17. For the set of parameters <M>(k_1,k_2,k_3,k_4)</M> they have
+considered all cases of the form <M>(k_1,k_2,k_3,k_4)=(2,0,0,k_4)</M>.
+<P/>
+Here we will check their computations in two cases <M>k_4=0</M> and <M>k_4=1</M>
+using the set of primes <M>P=\{2\}</M>. The holonomy group of these almost 
+crystallographic groups <M>G</M> is the dihedral group <M>{\cal D}_6</M> of order 
+12. Thus there is a short exact sequence of the form 
+<Display> 1 \rightarrow Fitt(G) \rightarrow G 
+     \rightarrow {\cal D}_6 \rightarrow 1. </Display>
+<P/>
+As a first step in their computation, Descheemaeker and Malfait determine
+the group <M>I_{P'}{\cal D}_6</M>, which is the unique subgroup of order 3 in
+<M>{\cal D}_6</M>. One of the main objects in <Cite Key="DM"/> is the group <M>K=p^{-1} 
+(I_{P'}{\cal D}_6)</M>, where <M>p</M> is the natural projection of <M>G</M> onto its 
+holonomy group. It is known that the <M>P</M>-localization of <M>G</M> coincides 
+with the <M>P</M>-localization of <M>G/\gamma_3(K)</M>, where <M>\gamma_3(K)</M> is the 
+third term in the lower central series of <M>K</M>. As <M>G/\gamma_3(K)</M> is 
+finite in this example, we exactly know what this <M>P</M>-localization is. 
+Let us now show how &GAP; can be used to compute this <M>P</M>-localization in 
+two cases:
+<P/>
+First case: The parameters are <M>(k_1,k_2,k_3,k_4)=(2,0,0,0)</M>
+<Example><![CDATA[
+gap> G := AlmostCrystallographicPcpGroup(3, 17, [2,0,0,0] );
+Pcp-group with orders [ 2, 6, 0, 0, 0 ]
+gap> projection := NaturalHomomorphismOnHolonomyGroup( G );
+[ g1, g2, g3, g4, g5 ] -> [ g1, g2, id, id, id ]
+gap> F := HolonomyGroup( G );
+Pcp-group with orders [ 2, 6 ]
+gap> IPprimeD6 := Subgroup( F , [F.2^2] );
+Pcp-group with orders [ 3 ]
+gap> K := PreImage( projection, IPprimeD6 );
+Pcp-group with orders [ 3, 0, 0, 0 ]
+gap> PrintPcpPresentation( K );
+g1^3 = id 
+g2 ^ g1 = g2^-1 * g3^-1
+g3 ^ g1 = g2 * g4^2
+g3 ^ g2 = g3 * g4^2
+g3 ^ g2^-1 = g3 * g4^-2
+gap> Gamma3K := CommutatorSubgroup( K, CommutatorSubgroup( K, K ));
+Pcp-group with orders [ 0, 0, 0 ]
+gap> quotient := G/Gamma3K;
+Pcp-group with orders [ 2, 6, 3, 3, 2 ]
+gap> S := SylowSubgroup( quotient, 3);
+Pcp-group with orders [ 3, 3, 3 ]
+gap> N := NormalClosure( quotient, S);
+Pcp-group with orders [ 3, 3, 3 ]
+gap> localization := quotient/N;
+Pcp-group with orders [ 2, 2, 2 ]
+gap> PrintPcpPresentation( localization );
+g1^2 = id 
+g2^2 = id 
+g3^2 = id 
+]]></Example>
+This shows that <M>G_P\cong &ZZ;_2^3</M>.
+<P/>
+Second case: The parameters are <M>(k_1,k_2,k_3,k_4)=(2,0,0,1)</M>
+<Example><![CDATA[
+gap> G := AlmostCrystallographicPcpGroup(3, 17, [2,0,0,1]);;
+gap> projection := NaturalHomomorphismOnHolonomyGroup( G );;
+gap> F := HolonomyGroup( G );;
+gap> IPprimeD6 := Subgroup( F , [F.2^2] );;
+gap> K := PreImage( projection, IPprimeD6 );;
+gap> Gamma3K := CommutatorSubgroup( K, CommutatorSubgroup( K, K ));;
+gap> quotient := G/Gamma3K;;
+gap> S := SylowSubgroup( quotient, 3);;
+gap> N := NormalClosure( quotient, S);;
+gap> localization := quotient/N;
+Pcp-group with orders [ 2, 2, 2 ]
+gap> PrintPcpPresentation( localization );
+g1^2 = id 
+g2^2 = g3
+g3^2 = id 
+g2 ^ g1 = g2 * g3
+]]></Example>
+In this case, we see that <M>G_P={\cal D}_4</M>.
+<P/>
+The reader can check that these results coincide with those obtained in 
+<Cite Key="DM"/>. Note also that we used a somewhat different scheme to compute 
+this localization than the one used in <Cite Key="DM"/>. We invite the reader to
+check the same computations, tracing exactly the steps made in <Cite Key="DM"/>.
+</Section>
+</Chapter>

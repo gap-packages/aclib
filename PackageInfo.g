@@ -1,6 +1,6 @@
 #############################################################################
 ##  
-##  PackageInfo.g for the package `Aclib'                      Bettina Eick
+##  PackageInfo.g for the package AClib                        Bettina Eick
 ##  
 
 SetPackageInfo( rec(
@@ -18,7 +18,7 @@ Persons := [
       IsAuthor      := true,
       IsMaintainer  := false,
       Email         := "Karel.Dekimpe@kuleuven.be",
-      WWWHome       := "https://www.kuleuven-kulak.be/~dekimpe/",
+      WWWHome       := "https://kulak.kuleuven.be/~dekimpe/",
       PostalAddress := Concatenation( [
                        "Katholieke Universiteit Leuven\n",
                        "Campus Kortrijk, Universitaire Campus\n",
@@ -33,7 +33,7 @@ Persons := [
       IsAuthor      := true,
       IsMaintainer  := true,
       Email         := "beick@tu-bs.de",
-      WWWHome       := "http://www.iaa.tu-bs.de/beick",
+      WWWHome       := "https://www.iaa.tu-bs.de/beick",
       PostalAddress := Concatenation(
                "Institut Analysis und Algebra\n",
                "TU Braunschweig\n",
@@ -61,12 +61,12 @@ ArchiveURL      := Concatenation( ~.SourceRepository.URL,
 ArchiveFormats := ".tar.gz",
 
 AbstractHTML := 
-"The <span class=\"pkgname\">AClib</span> package contains a library of almost crystallographic groups and a some algorithms to compute with these groups. A group is called almost crystallographic if it is finitely generated nilpotent-by-finite and has no non-trivial finite normal subgroups. Further, an almost crystallographic group is called almost Bieberbach if it is torsion-free. The almost crystallographic groups of Hirsch length 3 and a part of the almost cyrstallographic groups of Hirsch length 4 have been classified by Dekimpe. This classification includes all almost Bieberbach groups of Hirsch lengths 3 or 4. The AClib package gives access to this classification; that is, the package contains this library of groups in a computationally useful form. The groups in this library are available in two different representations. First, each of the groups of Hirsch length 3 or 4 has a rational matrix representation of dimension 4 or 5, respectively, and such representations are available in this package. Secondly, all the groups in this libraray are (infinite) polycyclic groups and the package also incorporates polycyclic presentations for them. The polycyclic presentations can be used to compute with the given groups using the methods of the Polycyclic package.",
+"The <span class=\"pkgname\">AClib</span> package contains a library of almost crystallographic groups and some algorithms to compute with these groups. A group is called almost crystallographic if it is finitely generated nilpotent-by-finite and has no non-trivial finite normal subgroups. Further, an almost crystallographic group is called almost Bieberbach if it is torsion-free. The almost crystallographic groups of Hirsch length 3 and a part of the almost crystallographic groups of Hirsch length 4 have been classified by Dekimpe. This classification includes all almost Bieberbach groups of Hirsch lengths 3 or 4. The AClib package gives access to this classification; that is, the package contains this library of groups in a computationally useful form. The groups in this library are available in two different representations. First, each of the groups of Hirsch length 3 or 4 has a rational matrix representation of dimension 4 or 5, respectively, and such representations are available in this package. Secondly, all the groups in this library are (infinite) polycyclic groups and the package also incorporates polycyclic presentations for them. The polycyclic presentations can be used to compute with the given groups using the methods of the Polycyclic package.",
 
 PackageDoc := rec(
   BookName  := "AClib",
-  ArchiveURLSubset := ["doc", "htm"],
-  HTMLStart := "htm/chapters.htm",
+  ArchiveURLSubset := ["doc"],
+  HTMLStart := "doc/chap0_mj.html",
   PDFFile   := "doc/manual.pdf",
   SixFile   := "doc/manual.six",
   LongTitle := "Almost Crystallographic Groups - A Library and Algorithms",
@@ -83,8 +83,17 @@ AvailabilityTest := ReturnTrue,
 TestFile := "tst/testall.g",
 
 Keywords := ["almost crystallographic groups", "almost Bieberbach group",
-             "virtually nilpotent group", "nilpotent-by-finite group", 
-             "datalibrary of almost Bieberbach groups"]
+             "virtually nilpotent group", "nilpotent-by-finite group",
+             "datalibrary of almost Bieberbach groups"],
+
+AutoDoc := rec(
+  entities := rec(
+    Polycyclic     := "<Package>Polycyclic</Package>",
+    Cryst          := "<Package>Cryst</Package>",
+    CaratInterface := "<Package>CaratInterface</Package>",
+    CrystCat       := "<Package>CrystCat</Package>",
+  ),
+),
 
 ));
 
