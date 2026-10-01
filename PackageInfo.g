@@ -73,10 +73,14 @@ PackageDoc := rec(
 ),
 
 Dependencies := rec(
-  GAP := ">=4.7",
+  GAP := ">=4.13",
   NeededOtherPackages := [["polycyclic",">=1.0"]],
   SuggestedOtherPackages := [["crystcat",">=1.1"]],
   ExternalConditions := [] ),
+
+Extensions := [
+  rec( needed := [ [ "crystcat", ">=1.1" ] ], filename := "gap/crystgrp.gi" ),
+],
 
 AvailabilityTest := ReturnTrue,
 
